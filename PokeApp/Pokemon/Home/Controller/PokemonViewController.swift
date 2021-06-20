@@ -8,15 +8,15 @@
 import UIKit
 import Kingfisher
 
-class PokemonViewController: BaseViewController {
-  
-  var viewModel: ViewModelProtocol?
-  weak var coordinator: PokemonCoordinator?
+final class PokemonViewController: BaseViewController {
   
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var detailsButton: UIButton!
+  
+  var viewModel: ViewModelProtocol?
+  weak var coordinator: PokemonCoordinator?
   
   override func viewDidLoad() {
     super.viewDidLoad()

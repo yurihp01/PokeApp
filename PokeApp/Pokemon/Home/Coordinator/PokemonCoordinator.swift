@@ -40,6 +40,9 @@ extension PokemonCoordinator: PokemonCoordinatorProtocol {
   }
   
   func goToAllPokemons() {
-    
+    let coordinator = PokemonsListCoordinator(navigationController: navigationController)
+    coordinator.parentCoordinator = self
+    add(childCoordinator: coordinator)
+    coordinator.start()
   }
 }

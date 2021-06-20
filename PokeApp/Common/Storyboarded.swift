@@ -10,6 +10,7 @@ import UIKit
 enum Storyboard: String {
   case pokemon = "Pokemon"
   case pokemonDetails
+  case pokemonsList = "PokemonsList"
 }
 
 // MARK: - Protocol

@@ -20,5 +20,6 @@ protocol ViewProtocol: AnyObject {
 
 protocol PokemonCoordinatorProtocol {
   func goToDetails(with pokemon: PKMPokemon?)
+  func goToAllPokemons()
 }
 
