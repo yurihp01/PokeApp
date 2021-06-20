@@ -69,7 +69,7 @@ extension PokemonViewController: ViewProtocol {
     DispatchQueue.main.async {
       self.setImageView()
       self.label.text = name
-      self.detailsButton.isEnabled = true
+      self.detailsButton.isHidden = false
       self.imageView.setImageView(url: image)
     }
   }

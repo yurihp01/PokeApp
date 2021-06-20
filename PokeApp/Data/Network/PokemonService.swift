@@ -20,12 +20,22 @@ class PokemonService {
     }
   }
   
-  static func getPokemonsList(onSuccess: @escaping ([String]) -> Void, onFailure: @escaping (Error) -> Void) {
+  static func getPokemonsList(onSuccess: @escaping (PKMPagedObject<PKMPokemon>) -> Void, onFailure: @escaping (Error) -> Void) {
     PokemonAPI().pokemonService.fetchPokemonList { result in
       switch result {
         case .success(let pagination):
-          guard let results = pagination.results as? [PKMNamedAPIResource] else { return }
-          onSuccess(results.map { $0.name ?? "" })
+          onSuccess(pagination)
+        case .failure(let error):
+          onFailure(error)
+      }
+    }
+  }
+  
+  static func getPokemonsListPaging(with pagedObject: PKMPagedObject<PKMPokemon>, pagination: PokemonPagination, onSuccess: @escaping (PKMPagedObject<PKMPokemon>) -> Void, onFailure: @escaping (Error) -> Void) {
+    PokemonAPI().pokemonService.fetchPokemonList(paginationState: .continuing(pagedObject, pagination == .next ? .next : .previous)) { result in
+      switch result {
+        case .success(let pagination):
+          onSuccess(pagination)
         case .failure(let error):
           onFailure(error)
       }

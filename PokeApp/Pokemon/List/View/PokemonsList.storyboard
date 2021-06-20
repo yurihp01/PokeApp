@@ -8,54 +8,92 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Pokemons List View Controller-->
+        <!--Pokemons List-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="PokemonsListViewController" id="Y6W-OH-hqX" customClass="PokemonsListViewController" customModule="PokeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PokemonsListViewController" title="Pokemons List" id="Y6W-OH-hqX" customClass="PokemonsListViewController" customModule="PokeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nl9-OX-InN">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nl9-OX-InN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="579"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="jan-SR-6GL" imageView="w6y-vh-nid" style="IBUITableViewCellStyleDefault" id="9zn-CC-eNy">
-                                        <rect key="frame" x="0.0" y="24.5" width="375" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="t5H-Vr-6Jb" style="IBUITableViewCellStyleDefault" id="9zn-CC-eNy">
+                                        <rect key="frame" x="0.0" y="24.5" width="375" height="52.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9zn-CC-eNy" id="6W4-7Z-4ro">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jan-SR-6GL">
-                                                    <rect key="frame" x="96" y="0.0" width="263" height="43.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t5H-Vr-6Jb">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="52.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
+                                                    <color key="textColor" red="0.23558294769999999" green="0.52891534569999998" blue="0.99826186900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="pokemon" id="w6y-vh-nid">
-                                                    <rect key="frame" x="16" y="0.0" width="65" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tO1-2L-0iu">
+                                <rect key="frame" x="12" y="603" width="163.5" height="40"/>
+                                <color key="backgroundColor" red="0.23558294769999999" green="0.52891534569999998" blue="0.99826186900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Before">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="previousButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="sJ9-nW-BCS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUJ-pS-ZeK">
+                                <rect key="frame" x="199.5" y="603" width="163.5" height="40"/>
+                                <color key="backgroundColor" red="0.23558294769999999" green="0.52891534569999998" blue="0.99826186900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="jHR-0w-crA"/>
+                                </constraints>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nWd-VJ-VYi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Nl9-OX-InN" secondAttribute="bottom" id="EFC-ML-ls7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pUJ-pS-ZeK" secondAttribute="trailing" constant="12" id="0I7-PF-ff5"/>
+                            <constraint firstItem="tO1-2L-0iu" firstAttribute="top" secondItem="pUJ-pS-ZeK" secondAttribute="top" id="3MW-ep-TsI"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="pUJ-pS-ZeK" secondAttribute="bottom" constant="24" id="5Ye-vr-v7f"/>
+                            <constraint firstItem="tO1-2L-0iu" firstAttribute="bottom" secondItem="pUJ-pS-ZeK" secondAttribute="bottom" id="7gX-cO-69d"/>
+                            <constraint firstItem="tO1-2L-0iu" firstAttribute="width" secondItem="pUJ-pS-ZeK" secondAttribute="width" id="Mls-RP-6bW"/>
+                            <constraint firstItem="tO1-2L-0iu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="OwO-Uw-muq"/>
                             <constraint firstItem="Nl9-OX-InN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Sxj-uh-9ZM"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Nl9-OX-InN" secondAttribute="trailing" id="WXg-OC-Zhu"/>
                             <constraint firstItem="Nl9-OX-InN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bBn-IO-xjw"/>
+                            <constraint firstItem="pUJ-pS-ZeK" firstAttribute="leading" secondItem="tO1-2L-0iu" secondAttribute="trailing" constant="24" id="oeC-cm-Xav"/>
+                            <constraint firstItem="pUJ-pS-ZeK" firstAttribute="top" secondItem="Nl9-OX-InN" secondAttribute="bottom" constant="24" id="pf6-8W-wRz"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nextButton" destination="pUJ-pS-ZeK" id="elv-Mz-QPK"/>
+                        <outlet property="previousButton" destination="tO1-2L-0iu" id="wNq-Zd-apY"/>
                         <outlet property="tableView" destination="Nl9-OX-InN" id="rTj-73-rDY"/>
                     </connections>
                 </viewController>
@@ -64,7 +102,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pokemon" width="609" height="410"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -12,14 +12,14 @@ final class PokemonsListViewController: BaseViewController {
   // MARK: - Variables
   
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var nextButton: UIButton!
+  @IBOutlet weak var previousButton: UIButton!
   
   var viewModel: PokemonsListViewModelProtocol?
   weak var coordinator: PokemonsListCoordinator?
   
   var pokemons: [String] = []
-  
-  // verificar se dá para trazer as imagens dos pokemons de maneira facil.
-  
+
   // MARK: - Override functions
   
   override func viewDidLoad() {
@@ -38,8 +38,18 @@ final class PokemonsListViewController: BaseViewController {
   
   private func getPokemons() {
     viewModel?.getPokemons()
+    indicator.startAnimating()
   }
   
+  @IBAction func previousButton(_ sender: UIButton) {
+    indicator.startAnimating()
+    viewModel?.getPokemonsWithPaging(.previous)
+  }
+  
+  @IBAction func nextButton(_ sender: UIButton) {
+    indicator.startAnimating()
+    viewModel?.getPokemonsWithPaging(.next)
+  }
 }
 
 // MARK: - Extensions
@@ -48,9 +58,7 @@ extension PokemonsListViewController: UITableViewDelegate, UITableViewDataSource
   
   // MARK: - UITableView
   
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return 0
-  }
+  func numberOfSections(in tableView: UITableView) -> Int { 1 }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     pokemons.count
@@ -58,7 +66,7 @@ extension PokemonsListViewController: UITableViewDelegate, UITableViewDataSource
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-    cell.textLabel?.text = pokemons[indexPath.row]
+    cell.textLabel?.text = pokemons[indexPath.row].capitalized
     
     return cell
   }
@@ -68,10 +76,25 @@ extension PokemonsListViewController: UITableViewDelegate, UITableViewDataSource
 
 extension PokemonsListViewController: PokemonsListViewProtocol {
   func showError(message: String?) {
-    showAlert(message: message)
+    DispatchQueue.main.async {
+      self.indicator.stopAnimating()
+      self.showAlert(message: message)
+    }
   }
   
   func getPokemons(with pokemons: [String]) {
     self.pokemons = pokemons
+    
+    DispatchQueue.main.async {
+      self.indicator.stopAnimating()
+      self.tableView.reloadData()
+    }
+  }
+  
+  func setButtonsVisibility(currentPage: Int, pages: Int) {
+    DispatchQueue.main.async {
+      self.nextButton.isEnabled = currentPage < pages
+      self.previousButton.isEnabled = currentPage > 0
+    }
   }
 }

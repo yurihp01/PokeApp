@@ -16,7 +16,7 @@ class BaseCoordinator: Coordinator {
   
   init() {
     navigationController = UINavigationController()
-    navigationController.navigationBar.barTintColor = #colorLiteral(red: 0.9389994144, green: 0.3279628158, blue: 0.3125981092, alpha: 1)
+    navigationController.navigationBar.barTintColor = #colorLiteral(red: 0.2355829477, green: 0.5289153457, blue: 0.998261869, alpha: 1)
     navigationController.navigationBar.tintColor = .white
   }
   

@@ -8,11 +8,20 @@
 import Foundation
 import PokemonAPI
 
+// MARK: - Enum
+
+enum PokemonPagination {
+  case next
+  case previous
+}
+
 protocol PokemonsListViewProtocol: AnyObject {
   func getPokemons(with pokemons: [String])
   func showError(message: String?)
+  func setButtonsVisibility(currentPage: Int, pages: Int)
 }
 
 protocol PokemonsListViewModelProtocol {
   func getPokemons()
+  func getPokemonsWithPaging(_ pagination: PokemonPagination)
 }
