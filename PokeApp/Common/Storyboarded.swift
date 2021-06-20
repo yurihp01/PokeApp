@@ -8,7 +8,7 @@
 import UIKit
 
 enum Storyboard: String {
-  case pokemon
+  case pokemon = "Pokemon"
   case pokemonDetails
 }
 

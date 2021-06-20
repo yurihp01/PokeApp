@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     coordinator = BaseCoordinator()
     coordinator.start()
+    window?.rootViewController = coordinator.navigationController.topViewController
   }
 
   func sceneDidDisconnect(_ scene: UIScene) {

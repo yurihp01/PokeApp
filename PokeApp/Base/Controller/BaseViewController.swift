@@ -7,15 +7,10 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
-
-//  func showAlert(message: String?) {
-//      guard let message = message else { return }
-//      let alert = UIAlertController.showAlertDialog(title: Constants.titleError, message: message)
-//      self.present(alert, animated: true, completion: nil)
-//  }
+class BaseViewController: UIViewController, Storyboarded {
   
   // MARK: - Variables
+  
   lazy var indicator: UIActivityIndicatorView = {
     let indicator = UIActivityIndicatorView(frame: CGRect(x: view.center.x - 24, y: view.center.y, width: 40, height: 40))
     indicator.style = .large
@@ -34,6 +29,8 @@ class BaseViewController: UIViewController {
   // MARK: Functions
   
   func showAlert(message: String?) {
-    
+    guard let message = message else { return }
+    let alert = UIAlertController.showAlertDialog(title: "Error", message: message)
+    self.present(alert, animated: true, completion: nil)
   }
 }

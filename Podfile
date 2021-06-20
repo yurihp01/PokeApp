@@ -6,7 +6,10 @@ target 'PokeApp' do
   use_frameworks!
 
   # Pods for PokeApp
+  pod 'PokemonAPI'
+  pod 'Kingfisher', '~> 6.0'
 
+  
   target 'PokeAppTests' do
     inherit! :search_paths
     # Pods for testing

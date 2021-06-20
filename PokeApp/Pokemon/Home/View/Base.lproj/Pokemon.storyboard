@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pokemon View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="PokemonViewController" id="BYZ-38-t0r" customClass="PokemonViewController" customModule="PokeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g8i-Sz-QSL">
+                                <rect key="frame" x="137.5" y="250" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="VYD-wy-VH4"/>
+                                    <constraint firstAttribute="width" constant="100" id="Ydz-Rj-Sik"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYS-BG-csS">
+                                <rect key="frame" x="24" y="374" width="327" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="22"/>
+                                <color key="textColor" red="0.23558294769999999" green="0.52891534569999998" blue="0.99826186900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" placeholder="Type the pokemon name" showsSearchResultsButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dpy-bT-WcW">
+                                <rect key="frame" x="0.0" y="24" width="375" height="51"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" systemColor="systemBlueColor"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNo-d9-KAj">
+                                <rect key="frame" x="24" y="398" width="327" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="grY-bt-4FL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" red="0.23558294769999999" green="0.52891534569999998" blue="0.99826186900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Pokemon Details"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="detailsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WCV-pN-eAm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TcN-gJ-Yry">
+                                <rect key="frame" x="24" y="603" width="327" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="j8e-4r-Vvk"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="All Pokemons">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="allPokemonsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5tL-7s-3yL"/>
+                                    <action selector="detailsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gvO-Ib-RgJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="g8i-Sz-QSL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5dX-6N-zao"/>
+                            <constraint firstItem="mNo-d9-KAj" firstAttribute="top" secondItem="JYS-BG-csS" secondAttribute="bottom" constant="24" id="HF7-Oa-Loe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TcN-gJ-Yry" secondAttribute="trailing" constant="24" id="Jil-t4-kcI"/>
+                            <constraint firstItem="dpy-bT-WcW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="Urf-Kh-FHy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mNo-d9-KAj" secondAttribute="trailing" constant="24" id="XLI-EO-Ijd"/>
+                            <constraint firstItem="TcN-gJ-Yry" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="eh7-8v-PaW"/>
+                            <constraint firstItem="mNo-d9-KAj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="fRk-im-bp0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JYS-BG-csS" secondAttribute="trailing" constant="24" id="fhw-Xq-HaU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dpy-bT-WcW" secondAttribute="trailing" id="hb1-iY-Vff"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TcN-gJ-Yry" secondAttribute="bottom" constant="24" id="jJg-Th-BPg"/>
+                            <constraint firstItem="JYS-BG-csS" firstAttribute="top" secondItem="g8i-Sz-QSL" secondAttribute="bottom" constant="24" id="klo-7o-Ena"/>
+                            <constraint firstItem="dpy-bT-WcW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nXo-cW-7UJ"/>
+                            <constraint firstItem="JYS-BG-csS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="yCx-rR-TOs"/>
+                            <constraint firstItem="g8i-Sz-QSL" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.9" id="zuc-cE-w73"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailsButton" destination="mNo-d9-KAj" id="RJ9-m7-TAb"/>
+                        <outlet property="imageView" destination="g8i-Sz-QSL" id="DOS-tw-tqU"/>
+                        <outlet property="label" destination="JYS-BG-csS" id="LKZ-7h-KYZ"/>
+                        <outlet property="searchBar" destination="dpy-bT-WcW" id="HsT-kk-b9t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="40.579710144927539" y="71.651785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

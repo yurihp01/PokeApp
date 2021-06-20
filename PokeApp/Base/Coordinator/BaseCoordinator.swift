@@ -21,8 +21,9 @@ class BaseCoordinator: Coordinator {
   }
   
   func start() {
-    
+    let childCoordinator = PokemonCoordinator(navigationController: navigationController)
+    childCoordinator.parentCoordinator = self
+    add(childCoordinator: childCoordinator)
+    childCoordinator.start()
   }
-  
-  
 }
