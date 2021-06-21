@@ -9,6 +9,8 @@ import UIKit
 
 extension UIImageView {
 
+  // MARK: - Functions
+  
   func makeRounded() {
       self.layer.borderWidth = 1
       self.layer.masksToBounds = false

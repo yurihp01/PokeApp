@@ -18,16 +18,14 @@ class BaseViewController: UIViewController, Storyboarded {
     return indicator
   }()
   
-  // MARK: - Override Functions
+  // MARK: - Functions
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     view.addSubview(indicator)
   }
-  
-  // MARK: Functions
-  
+    
   func showAlert(message: String?) {
     guard let message = message else { return }
     let alert = UIAlertController.showAlertDialog(title: "Error", message: message)

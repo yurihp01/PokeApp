@@ -10,7 +10,9 @@ import PokemonAPI
 
 class PokemonsListViewModel {
   
-  weak var view: PokemonsListViewProtocol?
+  // MARK: - Variables
+  
+  private unowned let view: PokemonsListViewProtocol
   
   private var pagedObject: PKMPagedObject<PKMPokemon>? = nil
   
@@ -24,7 +26,8 @@ class PokemonsListViewModel {
     return pages
   }
   
-  init() {
+  init(view: PokemonsListViewProtocol) {
+    self.view = view
     print("INIT - PokemonsListViewModel")
   }
   
@@ -35,7 +38,7 @@ class PokemonsListViewModel {
   // MARK: - Functions
   
   private func setButtonsVisibility() {
-    view?.setButtonsVisibility(currentPage: currentPage, pages: pages)
+    view.setButtonsVisibility(currentPage: currentPage, pages: pages)
   }
   
   private func getPokemonsSuccess(pagedObject: PKMPagedObject<PKMPokemon>) {
@@ -44,7 +47,7 @@ class PokemonsListViewModel {
     guard let results = pagedObject.results as? [PKMNamedAPIResource] else { return }
     let pokemons = results.map { $0.name ?? "" }
     
-    self.view?.getPokemons(with: pokemons)
+    self.view.getPokemons(with: pokemons)
     self.setButtonsVisibility()
   }
 }
@@ -57,7 +60,7 @@ extension PokemonsListViewModel: PokemonsListViewModelProtocol {
     PokemonService.getPokemonsList { [weak self] pagedObject in
       self?.getPokemonsSuccess(pagedObject: pagedObject)
     } onFailure: { [weak self] error in
-      self?.view?.showError(message: error.localizedDescription)
+      self?.view.showError(message: PokemonError.showError(error: error))
     }
   }
   
@@ -67,7 +70,7 @@ extension PokemonsListViewModel: PokemonsListViewModelProtocol {
     PokemonService.getPokemonsListPaging(with: pagedObject, pagination: pagination) { [weak self] pagedObject in
       self?.getPokemonsSuccess(pagedObject: pagedObject)
     } onFailure: { [weak self] error in
-      self?.view?.showError(message: error.localizedDescription)
+      self?.view.showError(message: PokemonError.showError(error: error))
     }
   }
 }

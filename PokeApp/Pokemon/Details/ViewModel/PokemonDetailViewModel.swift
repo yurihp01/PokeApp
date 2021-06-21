@@ -10,6 +10,7 @@ import Foundation
 class PokemonDetailViewModel {
   
   // MARK: - Variable
+  
   private let pokemon: Pokemon
   
   private unowned var view: PokemonDetailViewProtocol
@@ -25,8 +26,9 @@ class PokemonDetailViewModel {
     print("DEINIT - PokemonDetailViewModel")
   }
   
-  // MARK: - Functions
 }
+
+// MARK: - Extension
 
 extension PokemonDetailViewModel: PokemonDetailViewModelProtocol {
   func getPokemon() {

@@ -20,11 +20,9 @@ class PokemonsListCoordinator: Coordinator {
   
   func start() {
     let viewController = PokemonsListViewController.instatiate(storyboardName: .pokemonsList)
-
+    let viewModel = PokemonsListViewModel(view: viewController)
+    
     viewController.coordinator = self
-
-    let viewModel = PokemonsListViewModel()
-    viewModel.view = viewController
     viewController.viewModel = viewModel
     navigationController.pushViewController(viewController, animated: true)
   }

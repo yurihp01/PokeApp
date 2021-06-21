@@ -10,11 +10,13 @@ import UIKit
 protocol Coordinator: AnyObject {
   
   // MARK: - Variable
+  
   var navigationController: UINavigationController { get set }
   var childCoordinators: [Coordinator] { get set }
   var parentCoordinator: Coordinator? { get set }
   
   // MARK: - Functions
+  
   func start()
   func back()
   func add(childCoordinator coordinator: Coordinator)

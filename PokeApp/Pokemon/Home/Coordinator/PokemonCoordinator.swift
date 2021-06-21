@@ -9,6 +9,9 @@ import UIKit
 import PokemonAPI
 
 class PokemonCoordinator: Coordinator {
+  
+  // MARK: - Variables
+  
   var navigationController: UINavigationController
   
   var childCoordinators: [Coordinator] = []
@@ -19,12 +22,13 @@ class PokemonCoordinator: Coordinator {
     self.navigationController = navigationController
   }
   
+  // MARK: - Functions
+  
   func start() {
     let viewController = PokemonViewController.instatiate(storyboardName: .pokemon)
-    viewController.coordinator = self
+    let viewModel = PokemonViewModel(view: viewController)
     
-    let viewModel = PokemonViewModel()
-    viewModel.view = viewController
+    viewController.coordinator = self
     viewController.viewModel = viewModel
     navigationController.pushViewController(viewController, animated: true)
   }
@@ -33,6 +37,8 @@ class PokemonCoordinator: Coordinator {
     navigationController.popViewController(animated: true)
   }
 }
+
+// MARK: - Extension
 
 extension PokemonCoordinator: PokemonCoordinatorProtocol {
   func goToDetails(with pokemon: Pokemon) {

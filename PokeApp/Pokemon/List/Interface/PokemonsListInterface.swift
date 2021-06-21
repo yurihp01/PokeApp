@@ -15,6 +15,8 @@ enum PokemonPagination {
   case previous
 }
 
+// MARK: - Protocols
+
 protocol PokemonsListViewProtocol: AnyObject {
   func getPokemons(with pokemons: [String])
   func showError(message: String?)

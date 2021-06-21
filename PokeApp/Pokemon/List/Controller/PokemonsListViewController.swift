@@ -20,7 +20,7 @@ final class PokemonsListViewController: BaseViewController {
   
   var pokemons: [String] = []
 
-  // MARK: - Override functions
+  // MARK: - Functions
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -29,8 +29,6 @@ final class PokemonsListViewController: BaseViewController {
     getPokemons()
   }
     
-  // MARK: - Private Functions
-  
   private func setTableView() {
     tableView.delegate = self
     tableView.dataSource = self

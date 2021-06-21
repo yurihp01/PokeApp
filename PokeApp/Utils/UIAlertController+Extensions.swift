@@ -9,8 +9,8 @@ import UIKit
 
 extension UIAlertController {
   
-  // MARK: - Functions
-  
+  // MARK: - Function
+
   static func showAlertDialog(title: String, message: String) -> UIAlertController {
       let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
       let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)

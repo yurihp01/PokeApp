@@ -10,6 +10,8 @@ import Kingfisher
 
 final class PokemonViewController: BaseViewController {
   
+  // MARK: - Variables
+
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var searchBar: UISearchBar!
@@ -18,13 +20,13 @@ final class PokemonViewController: BaseViewController {
   var viewModel: ViewModelProtocol?
   weak var coordinator: PokemonCoordinator?
   
+  // MARK: - Functions
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     setSearchBar()
   }
-
-  // MARK: - Private Funcs
   
   private func setImageView() {
     imageView.makeRounded()
@@ -34,9 +36,7 @@ final class PokemonViewController: BaseViewController {
     searchBar.delegate = self
     searchBar.searchTextField.backgroundColor = .white
   }
-  
-  // MARK: - IBActions
-  
+    
   @IBAction func detailsButton(_ sender: UIButton) {
     viewModel?.setPokemon(image: imageView.image)
   }
@@ -65,7 +65,7 @@ extension PokemonViewController: UISearchBarDelegate {
 
 // MARK: - ViewProtocol
 
-extension PokemonViewController: ViewProtocol {
+extension PokemonViewController: PokemonViewProtocol {
   func goToDetails(with pokemon: Pokemon) {
     coordinator?.goToDetails(with: pokemon)
   }

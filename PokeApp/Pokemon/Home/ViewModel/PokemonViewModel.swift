@@ -9,10 +9,15 @@ import PokemonAPI
 
 class PokemonViewModel {
   
-  weak var view: ViewProtocol?
+  // MARK: - Variables
+  
+  private unowned let view: PokemonViewProtocol
+  
   var pokemon: PKMPokemon? = nil
   
-  init() {
+  init(view: PokemonViewProtocol) {
+    self.view = view
+    
     print("INIT PokemonViewModel")
   }
   
@@ -21,20 +26,23 @@ class PokemonViewModel {
   }
 }
 
+// MARK: - Extension
+
 extension PokemonViewModel: ViewModelProtocol {
   func getPokemon(with name: String?) {
-    guard let name = name else {
-      
-      return }
+    guard let name = name, !name.isEmpty else {
+      view.showError(message: PokemonError.blankName.localizedDescription)
+      return
+    }
   
     PokemonService.getPokemon(name: name) { [weak self] pokemon in
       guard let image = URL(string: pokemon.sprites?.backDefault ?? ""),
             let name = pokemon.name else { return }
       
       self?.pokemon = pokemon
-      self?.view?.getPokemon(name: name.capitalized, image: image)
+      self?.view.getPokemon(name: name.capitalized, image: image)
     } onFailure: { [weak self] error in
-      self?.view?.showError(message: error.localizedDescription)
+      self?.view.showError(message: PokemonError.showError(error: error))
     }
   }
   
@@ -49,6 +57,6 @@ extension PokemonViewModel: ViewModelProtocol {
     
     let pokemon = Pokemon(name: name, height: height, weight: weight, move: move, type: type, ability: ability, image: image)
     
-    view?.goToDetails(with: pokemon)
+    view.goToDetails(with: pokemon)
   }
 }

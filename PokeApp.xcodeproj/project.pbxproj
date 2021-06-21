@@ -21,11 +21,11 @@
 		FA6183DC2680105500786785 /* PokemonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6183DB2680105500786785 /* PokemonDetailViewModel.swift */; };
 		FA6183DE2680130900786785 /* PokemonDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6183DD2680130900786785 /* PokemonDetailCoordinator.swift */; };
 		FA6183E02680145B00786785 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6183DF2680145B00786785 /* Pokemon.swift */; };
+		FA6183E42680244D00786785 /* PokemonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6183E32680244D00786785 /* PokemonError.swift */; };
 		FABE176F267E188900BF58F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE176E267E188900BF58F7 /* AppDelegate.swift */; };
 		FABE1771267E188900BF58F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1770267E188900BF58F7 /* SceneDelegate.swift */; };
 		FABE1773267E188900BF58F7 /* PokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1772267E188900BF58F7 /* PokemonViewController.swift */; };
 		FABE1776267E188900BF58F7 /* Pokemon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABE1774267E188900BF58F7 /* Pokemon.storyboard */; };
-		FABE1779267E188900BF58F7 /* PokeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FABE1777267E188900BF58F7 /* PokeApp.xcdatamodeld */; };
 		FABE177B267E188C00BF58F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABE177A267E188C00BF58F7 /* Assets.xcassets */; };
 		FABE177E267E188C00BF58F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABE177C267E188C00BF58F7 /* LaunchScreen.storyboard */; };
 		FABE1789267E188D00BF58F7 /* PokeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1788267E188D00BF58F7 /* PokeAppTests.swift */; };
@@ -80,12 +80,12 @@
 		FA6183DB2680105500786785 /* PokemonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewModel.swift; sourceTree = "<group>"; };
 		FA6183DD2680130900786785 /* PokemonDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailCoordinator.swift; sourceTree = "<group>"; };
 		FA6183DF2680145B00786785 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		FA6183E32680244D00786785 /* PokemonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonError.swift; sourceTree = "<group>"; };
 		FABE176B267E188900BF58F7 /* PokeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABE176E267E188900BF58F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FABE1770267E188900BF58F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FABE1772267E188900BF58F7 /* PokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewController.swift; sourceTree = "<group>"; };
 		FABE1775267E188900BF58F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Pokemon.storyboard; sourceTree = "<group>"; };
-		FABE1778267E188900BF58F7 /* PokeApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PokeApp.xcdatamodel; sourceTree = "<group>"; };
 		FABE177A267E188C00BF58F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FABE177D267E188C00BF58F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FABE177F267E188C00BF58F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -251,7 +251,6 @@
 				FABE17A1267E217300BF58F7 /* Utils */,
 				FABE176E267E188900BF58F7 /* AppDelegate.swift */,
 				FABE1770267E188900BF58F7 /* SceneDelegate.swift */,
-				FABE1777267E188900BF58F7 /* PokeApp.xcdatamodeld */,
 			);
 			path = PokeApp;
 			sourceTree = "<group>";
@@ -356,6 +355,7 @@
 		FABE17B2267E3CCE00BF58F7 /* Error */ = {
 			isa = PBXGroup;
 			children = (
+				FA6183E32680244D00786785 /* PokemonError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -715,7 +715,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA6183DA26800E7200786785 /* PokemonDetailInterface.swift in Sources */,
-				FABE1779267E188900BF58F7 /* PokeApp.xcdatamodeld in Sources */,
 				FABE17C4267E657800BF58F7 /* PokemonInterface.swift in Sources */,
 				FABE1773267E188900BF58F7 /* PokemonViewController.swift in Sources */,
 				FABE17CE267EAB7400BF58F7 /* UIImageView+Extensions.swift in Sources */,
@@ -730,6 +729,7 @@
 				FA6183CC267EF44700786785 /* PokemonsListViewModel.swift in Sources */,
 				FABE176F267E188900BF58F7 /* AppDelegate.swift in Sources */,
 				FABE17C1267E64D800BF58F7 /* PokemonViewModel.swift in Sources */,
+				FA6183E42680244D00786785 /* PokemonError.swift in Sources */,
 				FABE17AE267E338200BF58F7 /* BaseViewController.swift in Sources */,
 				FA6183D626800C3A00786785 /* PokemonDetailViewController.swift in Sources */,
 				FABE1771267E188900BF58F7 /* SceneDelegate.swift in Sources */,
@@ -1069,19 +1069,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		FABE1777267E188900BF58F7 /* PokeApp.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FABE1778267E188900BF58F7 /* PokeApp.xcdatamodel */,
-			);
-			currentVersion = FABE1778267E188900BF58F7 /* PokeApp.xcdatamodel */;
-			path = PokeApp.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FABE1763267E188900BF58F7 /* Project object */;
 }

@@ -8,6 +8,9 @@
 import UIKit
 
 class BaseCoordinator: Coordinator {
+  
+  // MARK: - Variables
+  
   var navigationController: UINavigationController
   
   var childCoordinators: [Coordinator] = []
@@ -20,6 +23,8 @@ class BaseCoordinator: Coordinator {
     navigationController.navigationBar.tintColor = .white
     navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
   }
+  
+  // MARK: - Function
   
   func start() {
     let childCoordinator = PokemonCoordinator(navigationController: navigationController)

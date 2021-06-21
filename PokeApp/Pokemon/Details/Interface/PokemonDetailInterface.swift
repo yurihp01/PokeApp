@@ -7,6 +7,8 @@
 
 import Foundation
 
+//  MARK: - Protocols
+
 protocol PokemonDetailViewProtocol: AnyObject {
   func setPokemon(with pokemon: Pokemon)
 }

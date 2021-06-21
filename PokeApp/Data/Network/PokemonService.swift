@@ -8,6 +8,8 @@
 import Foundation
 import PokemonAPI
 
+// MARK: - Functions
+
 class PokemonService {
   static func getPokemon(name: String, onSuccess: @escaping (PKMPokemon) -> Void, onFailure: @escaping (Error) -> Void) {
     PokemonAPI().pokemonService.fetchPokemon(name) { result in

@@ -8,6 +8,9 @@
 import PokemonAPI
 
 class PokemonDetailCoordinator: Coordinator {
+  
+//  MARK: - Variables
+  
   var navigationController: UINavigationController
   
   var childCoordinators: [Coordinator] = []
@@ -20,6 +23,8 @@ class PokemonDetailCoordinator: Coordinator {
     self.navigationController = navigationController
     self.pokemon = pokemon
   }
+  
+  //  MARK: - Function
   
   func start() {
     let viewController = PokemonDetailViewController.instatiate(storyboardName: .pokemonDetails)

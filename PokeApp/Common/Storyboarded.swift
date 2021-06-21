@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - Enum
+
 enum Storyboard: String {
   case pokemon = "Pokemon"
   case pokemonDetails = "PokemonDetail"
