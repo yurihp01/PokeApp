@@ -29,5 +29,6 @@ class PokemonsListCoordinator: Coordinator {
   
   func back() {
     navigationController.popViewController(animated: true)
+    parentCoordinator?.remove(childCoordinator: self)
   }
 }

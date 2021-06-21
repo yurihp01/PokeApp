@@ -30,6 +30,12 @@ class PokemonDetailViewController: BaseViewController {
     getPokemon()
   }
   
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    
+    coordinator?.back()
+  }
+  
   private func getPokemon() {
     viewModel?.getPokemon()
   }

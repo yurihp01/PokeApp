@@ -28,6 +28,12 @@ final class PokemonsListViewController: BaseViewController {
     setTableView()
     getPokemons()
   }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    
+    coordinator?.back()
+  }
     
   private func setTableView() {
     tableView.delegate = self

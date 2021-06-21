@@ -28,6 +28,12 @@ final class PokemonViewController: BaseViewController {
     setSearchBar()
   }
   
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    
+    coordinator?.back()
+  }
+  
   private func setImageView() {
     imageView.makeRounded()
   }

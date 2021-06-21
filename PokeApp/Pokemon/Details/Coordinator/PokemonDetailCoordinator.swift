@@ -33,4 +33,9 @@ class PokemonDetailCoordinator: Coordinator {
     viewController.viewModel = viewModel
     navigationController.pushViewController(viewController, animated: true)
   }
+  
+  func back() {
+    navigationController.popViewController(animated: true)
+    parentCoordinator?.remove(childCoordinator: self)
+  }
 }

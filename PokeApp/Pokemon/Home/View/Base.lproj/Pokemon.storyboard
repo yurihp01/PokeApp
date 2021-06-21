@@ -73,7 +73,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="allPokemonsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5tL-7s-3yL"/>
-                                    <action selector="detailsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gvO-Ib-RgJ"/>
                                 </connections>
                             </button>
                         </subviews>
