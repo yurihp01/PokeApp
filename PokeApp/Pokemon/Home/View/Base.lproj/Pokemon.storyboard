@@ -25,11 +25,11 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYS-BG-csS">
                                 <rect key="frame" x="24" y="374" width="327" height="0.0"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="39"/>
                                 <color key="textColor" red="0.23558294769999999" green="0.52891534569999998" blue="0.99826186900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar contentMode="redraw" placeholder="Type the pokemon name" showsSearchResultsButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dpy-bT-WcW">
+                            <searchBar contentMode="redraw" placeholder="Type the pokemon name" translatesAutoresizingMaskIntoConstraints="NO" id="dpy-bT-WcW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" red="0.23558294769999999" green="0.52891534569999998" blue="0.99826186900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -46,7 +46,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" red="0.23558294769999999" green="0.52891534569999998" blue="0.99826186900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Pokemon Details"/>
+                                <state key="normal" title="Show Pokemon Details"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="12"/>

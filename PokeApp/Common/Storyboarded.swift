@@ -9,7 +9,7 @@ import UIKit
 
 enum Storyboard: String {
   case pokemon = "Pokemon"
-  case pokemonDetails
+  case pokemonDetails = "PokemonDetail"
   case pokemonsList = "PokemonsList"
 }
 

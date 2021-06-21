@@ -35,8 +35,11 @@ class PokemonCoordinator: Coordinator {
 }
 
 extension PokemonCoordinator: PokemonCoordinatorProtocol {
-  func goToDetails(with pokemon: PKMPokemon?) {
-    
+  func goToDetails(with pokemon: Pokemon) {
+    let coordinator = PokemonDetailCoordinator(pokemon: pokemon, navigationController: navigationController)
+    coordinator.parentCoordinator = self
+    add(childCoordinator: coordinator)
+    coordinator.start()
   }
   
   func goToAllPokemons() {

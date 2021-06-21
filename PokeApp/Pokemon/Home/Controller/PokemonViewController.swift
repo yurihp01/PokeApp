@@ -38,7 +38,7 @@ final class PokemonViewController: BaseViewController {
   // MARK: - IBActions
   
   @IBAction func detailsButton(_ sender: UIButton) {
-    coordinator?.goToDetails(with: viewModel?.pokemon)
+    viewModel?.setPokemon(image: imageView.image)
   }
   
   @IBAction func allPokemonsButton(_ sender: UIButton) {
@@ -53,6 +53,7 @@ extension PokemonViewController: UISearchBarDelegate {
 // MARK: - UISearchBarDelegate
   
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    indicator.startAnimating()
     viewModel?.getPokemon(with: searchBar.text?.lowercased())
     searchBar.text = .none
   }
@@ -65,8 +66,13 @@ extension PokemonViewController: UISearchBarDelegate {
 // MARK: - ViewProtocol
 
 extension PokemonViewController: ViewProtocol {
+  func goToDetails(with pokemon: Pokemon) {
+    coordinator?.goToDetails(with: pokemon)
+  }
+  
   func getPokemon(name: String, image: URL) {
     DispatchQueue.main.async {
+      self.indicator.stopAnimating()
       self.setImageView()
       self.label.text = name
       self.detailsButton.isHidden = false
@@ -76,6 +82,7 @@ extension PokemonViewController: ViewProtocol {
   
   func showError(message: String) {
     DispatchQueue.main.async {
+      self.indicator.stopAnimating()
       self.showAlert(message: message)
     }
   }
