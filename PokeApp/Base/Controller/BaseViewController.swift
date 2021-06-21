@@ -26,9 +26,9 @@ class BaseViewController: UIViewController, Storyboarded {
     view.addSubview(indicator)
   }
     
-  func showAlert(message: String?) {
+  func showAlert(message: String?, title: String) {
     guard let message = message else { return }
-    let alert = UIAlertController.showAlertDialog(title: "Error", message: message)
+    let alert = UIAlertController.showAlertDialog(title: title, message: message)
     self.present(alert, animated: true, completion: nil)
   }
 }

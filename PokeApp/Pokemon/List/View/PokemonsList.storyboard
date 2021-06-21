@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nl9-OX-InN">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="579"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nl9-OX-InN">
+                                <rect key="frame" x="0.0" y="72" width="375" height="507"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="t5H-Vr-6Jb" style="IBUITableViewCellStyleDefault" id="9zn-CC-eNy">
@@ -74,19 +74,28 @@
                                     <action selector="nextButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nWd-VJ-VYi"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click on pokemon to star it!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad7-dc-ayl">
+                                <rect key="frame" x="24" y="24" width="327" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.23558294769999999" green="0.52891534569999998" blue="0.99826186900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pUJ-pS-ZeK" secondAttribute="trailing" constant="12" id="0I7-PF-ff5"/>
+                            <constraint firstItem="Nl9-OX-InN" firstAttribute="top" secondItem="ad7-dc-ayl" secondAttribute="bottom" constant="24" id="1jA-JZ-3Pc"/>
                             <constraint firstItem="tO1-2L-0iu" firstAttribute="top" secondItem="pUJ-pS-ZeK" secondAttribute="top" id="3MW-ep-TsI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="pUJ-pS-ZeK" secondAttribute="bottom" constant="24" id="5Ye-vr-v7f"/>
                             <constraint firstItem="tO1-2L-0iu" firstAttribute="bottom" secondItem="pUJ-pS-ZeK" secondAttribute="bottom" id="7gX-cO-69d"/>
+                            <constraint firstItem="ad7-dc-ayl" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="8XP-0G-9c5"/>
                             <constraint firstItem="tO1-2L-0iu" firstAttribute="width" secondItem="pUJ-pS-ZeK" secondAttribute="width" id="Mls-RP-6bW"/>
                             <constraint firstItem="tO1-2L-0iu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="OwO-Uw-muq"/>
-                            <constraint firstItem="Nl9-OX-InN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Sxj-uh-9ZM"/>
+                            <constraint firstItem="ad7-dc-ayl" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="VQV-FG-4S1"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Nl9-OX-InN" secondAttribute="trailing" id="WXg-OC-Zhu"/>
                             <constraint firstItem="Nl9-OX-InN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bBn-IO-xjw"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ad7-dc-ayl" secondAttribute="trailing" constant="24" id="eEa-Hd-Bec"/>
                             <constraint firstItem="pUJ-pS-ZeK" firstAttribute="leading" secondItem="tO1-2L-0iu" secondAttribute="trailing" constant="24" id="oeC-cm-Xav"/>
                             <constraint firstItem="pUJ-pS-ZeK" firstAttribute="top" secondItem="Nl9-OX-InN" secondAttribute="bottom" constant="24" id="pf6-8W-wRz"/>
                         </constraints>

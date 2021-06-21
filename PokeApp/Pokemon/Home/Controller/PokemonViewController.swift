@@ -28,12 +28,6 @@ final class PokemonViewController: BaseViewController {
     setSearchBar()
   }
   
-  override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
-    
-    coordinator?.back()
-  }
-  
   private func setImageView() {
     imageView.makeRounded()
   }
@@ -89,7 +83,7 @@ extension PokemonViewController: PokemonViewProtocol {
   func showError(message: String) {
     DispatchQueue.main.async {
       self.indicator.stopAnimating()
-      self.showAlert(message: message)
+      self.showAlert(message: message, title: "Error")
     }
   }
 }

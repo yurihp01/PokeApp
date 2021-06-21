@@ -9,9 +9,10 @@ import Foundation
 
 // MARK: Enums
 enum PokemonError: Error {
-    case notFound
-    case blankName
-    case internetConnection
+  case notFound
+  case blankName
+  case internetConnection
+  case postFailure
 }
 
 // MARK: Extensions
@@ -25,6 +26,8 @@ extension PokemonError: LocalizedError {
         return "The field is empty. Type a pokemon name!"
       case .internetConnection:
         return "The internet connection appears to be offline. Check your connection and try again."
+      case .postFailure:
+        return "The pokemon data has failed posting on WebHooks. Try again later."
     }
   }
   

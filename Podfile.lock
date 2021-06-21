@@ -1,20 +1,30 @@
 PODS:
+  - Alamofire (5.4.3)
   - Kingfisher (6.3.0)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
   - PokemonAPI (6.0.2)
 
 DEPENDENCIES:
   - Kingfisher (~> 6.0)
+  - Moya (~> 14.0)
   - PokemonAPI
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Kingfisher
+    - Moya
     - PokemonAPI
 
 SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   PokemonAPI: bff9656c1825288e7f028b415ce6276122ad4c6a
 
-PODFILE CHECKSUM: 2120423f8419f4450274bbdfc9572ba24dadce88
+PODFILE CHECKSUM: 4e35f832a609b15164ed1789af44804765d0031a
 
 COCOAPODS: 1.10.1

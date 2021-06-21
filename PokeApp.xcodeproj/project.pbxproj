@@ -22,6 +22,8 @@
 		FA6183DE2680130900786785 /* PokemonDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6183DD2680130900786785 /* PokemonDetailCoordinator.swift */; };
 		FA6183E02680145B00786785 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6183DF2680145B00786785 /* Pokemon.swift */; };
 		FA6183E42680244D00786785 /* PokemonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6183E32680244D00786785 /* PokemonError.swift */; };
+		FA61842226803AF300786785 /* WebHooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA61842126803AF300786785 /* WebHooksService.swift */; };
+		FA61842426803C4E00786785 /* WebHooksNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA61842326803C4E00786785 /* WebHooksNetworkManager.swift */; };
 		FABE176F267E188900BF58F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE176E267E188900BF58F7 /* AppDelegate.swift */; };
 		FABE1771267E188900BF58F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1770267E188900BF58F7 /* SceneDelegate.swift */; };
 		FABE1773267E188900BF58F7 /* PokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1772267E188900BF58F7 /* PokemonViewController.swift */; };
@@ -81,6 +83,8 @@
 		FA6183DD2680130900786785 /* PokemonDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailCoordinator.swift; sourceTree = "<group>"; };
 		FA6183DF2680145B00786785 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		FA6183E32680244D00786785 /* PokemonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonError.swift; sourceTree = "<group>"; };
+		FA61842126803AF300786785 /* WebHooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHooksService.swift; sourceTree = "<group>"; };
+		FA61842326803C4E00786785 /* WebHooksNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHooksNetworkManager.swift; sourceTree = "<group>"; };
 		FABE176B267E188900BF58F7 /* PokeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABE176E267E188900BF58F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FABE1770267E188900BF58F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -364,6 +368,8 @@
 			isa = PBXGroup;
 			children = (
 				FABE17C7267E688300BF58F7 /* PokemonService.swift */,
+				FA61842126803AF300786785 /* WebHooksService.swift */,
+				FA61842326803C4E00786785 /* WebHooksNetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -714,6 +720,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA61842426803C4E00786785 /* WebHooksNetworkManager.swift in Sources */,
 				FA6183DA26800E7200786785 /* PokemonDetailInterface.swift in Sources */,
 				FABE17C4267E657800BF58F7 /* PokemonInterface.swift in Sources */,
 				FABE1773267E188900BF58F7 /* PokemonViewController.swift in Sources */,
@@ -725,6 +732,7 @@
 				FABE17A7267E21DA00BF58F7 /* Storyboarded.swift in Sources */,
 				FABE17C8267E688300BF58F7 /* PokemonService.swift in Sources */,
 				FA6183DC2680105500786785 /* PokemonDetailViewModel.swift in Sources */,
+				FA61842226803AF300786785 /* WebHooksService.swift in Sources */,
 				FA6183E02680145B00786785 /* Pokemon.swift in Sources */,
 				FA6183CC267EF44700786785 /* PokemonsListViewModel.swift in Sources */,
 				FABE176F267E188900BF58F7 /* AppDelegate.swift in Sources */,

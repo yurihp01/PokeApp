@@ -9,6 +9,13 @@ import UIKit
 
 final class PokemonsListViewController: BaseViewController {
 
+  //  MARK: - Enum
+    
+  enum Titles: String {
+    case error = "Error"
+    case posted = "Success"
+  }
+
   // MARK: - Variables
   
   @IBOutlet weak var tableView: UITableView!
@@ -16,10 +23,11 @@ final class PokemonsListViewController: BaseViewController {
   @IBOutlet weak var previousButton: UIButton!
   
   var viewModel: PokemonsListViewModelProtocol?
+  var pokemons: [String] = []
+  var indexPath: IndexPath? = nil
+  
   weak var coordinator: PokemonsListCoordinator?
   
-  var pokemons: [String] = []
-
   // MARK: - Functions
   
   override func viewDidLoad() {
@@ -74,6 +82,12 @@ extension PokemonsListViewController: UITableViewDelegate, UITableViewDataSource
     
     return cell
   }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    indicator.startAnimating()
+    viewModel?.postPokemon(with: pokemons[indexPath.row])
+    self.indexPath = indexPath
+  }
 }
 
 // MARK: - PokemonsListViewProtocol
@@ -82,7 +96,17 @@ extension PokemonsListViewController: PokemonsListViewProtocol {
   func showError(message: String?) {
     DispatchQueue.main.async {
       self.indicator.stopAnimating()
-      self.showAlert(message: message)
+      self.showAlert(message: message, title: Titles.error.rawValue)
+    }
+  }
+  
+  func showAlert(message: String) {
+    guard let indexPath = indexPath else { return }
+    DispatchQueue.main.async {
+      self.indicator.stopAnimating()
+      self.showAlert(message: message, title: Titles.posted.rawValue)
+      self.tableView.cellForRow(at: indexPath)?.imageView?.image = UIImage(systemName: "star.fill")
+      self.tableView.reloadData()
     }
   }
   

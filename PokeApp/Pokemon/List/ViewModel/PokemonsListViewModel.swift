@@ -50,12 +50,20 @@ class PokemonsListViewModel {
     self.view.getPokemons(with: pokemons)
     self.setButtonsVisibility()
   }
+  
+  private func postPokemon(pokemon: PKMPokemon) {
+    WebHooksNetworkManager.shared.postPokemon(pokemon: pokemon) { [weak self] message in
+      self?.view.showAlert(message: message)
+    } onError: { [weak self] error in
+      self?.view.showError(message: error.localizedDescription)
+    }
+  }
 }
 
 // MARK: - Extension
 
 extension PokemonsListViewModel: PokemonsListViewModelProtocol {
-  
+
   func getPokemons() {
     PokemonService.getPokemonsList { [weak self] pagedObject in
       self?.getPokemonsSuccess(pagedObject: pagedObject)
@@ -69,6 +77,14 @@ extension PokemonsListViewModel: PokemonsListViewModelProtocol {
     
     PokemonService.getPokemonsListPaging(with: pagedObject, pagination: pagination) { [weak self] pagedObject in
       self?.getPokemonsSuccess(pagedObject: pagedObject)
+    } onFailure: { [weak self] error in
+      self?.view.showError(message: PokemonError.showError(error: error))
+    }
+  }
+  
+  func postPokemon(with name: String) {
+    PokemonService.getPokemon(name: name) { [weak self] pokemon in
+      self?.postPokemon(pokemon: pokemon)
     } onFailure: { [weak self] error in
       self?.view.showError(message: PokemonError.showError(error: error))
     }
