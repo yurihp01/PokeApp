@@ -24,7 +24,9 @@ final class PokemonsListViewController: BaseViewController {
   
   var viewModel: PokemonsListViewModelProtocol?
   var pokemons: [String] = []
-  var indexPath: IndexPath? = nil
+  var bookmarkedPokemons: [(Int, Int)] = []
+  var indexPath = IndexPath()
+  var currentPage: Int = 0
   
   weak var coordinator: PokemonsListCoordinator?
   
@@ -79,6 +81,13 @@ extension PokemonsListViewController: UITableViewDelegate, UITableViewDataSource
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     cell.textLabel?.text = pokemons[indexPath.row].capitalized
+    cell.imageView?.image = nil
+    
+    bookmarkedPokemons.forEach { row, page in
+      if currentPage == page, indexPath.row == row {
+        cell.imageView?.image = UIImage(systemName: "star.fill")
+      }
+    }
     
     return cell
   }
@@ -86,6 +95,7 @@ extension PokemonsListViewController: UITableViewDelegate, UITableViewDataSource
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     indicator.startAnimating()
     viewModel?.postPokemon(with: pokemons[indexPath.row])
+    bookmarkedPokemons.append((indexPath.row, currentPage))
     self.indexPath = indexPath
   }
 }
@@ -101,11 +111,10 @@ extension PokemonsListViewController: PokemonsListViewProtocol {
   }
   
   func showAlert(message: String) {
-    guard let indexPath = indexPath else { return }
     DispatchQueue.main.async {
       self.indicator.stopAnimating()
       self.showAlert(message: message, title: Titles.posted.rawValue)
-      self.tableView.cellForRow(at: indexPath)?.imageView?.image = UIImage(systemName: "star.fill")
+      self.tableView.cellForRow(at: self.indexPath)?.imageView?.image = UIImage(systemName: "star.fill")
       self.tableView.reloadData()
     }
   }
@@ -121,8 +130,10 @@ extension PokemonsListViewController: PokemonsListViewProtocol {
   
   func setButtonsVisibility(currentPage: Int, pages: Int) {
     DispatchQueue.main.async {
+      self.currentPage = currentPage
       self.nextButton.isEnabled = currentPage < pages
       self.previousButton.isEnabled = currentPage > 0
+      self.tableView.reloadData()
     }
   }
 }

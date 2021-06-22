@@ -12,7 +12,7 @@ import PokemonAPI
 // MARK: - Enum
 
 enum WebHooksService {
-  case postPokemon(pokemon: String)
+  case postPokemon(pokemon: Pokemon)
 }
 
 // MARK: - Extension
@@ -37,7 +37,7 @@ extension WebHooksService: TargetType {
   var task: Task {
     switch self {
       case .postPokemon(let pokemon):
-        return .requestParameters(parameters: ["Pokemon": pokemon], encoding: URLEncoding.httpBody)
+        return .requestJSONEncodable(pokemon)
     }
   }
   

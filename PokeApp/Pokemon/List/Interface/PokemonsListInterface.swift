@@ -31,5 +31,5 @@ protocol PokemonsListViewModelProtocol {
 }
 
 protocol WebHooksProtocol {
-  func postPokemon(pokemon: PKMPokemon, onSuccess: @escaping (String) -> Void, onError: @escaping (Error) -> Void)
+  func postPokemon(pokemon: Pokemon, onSuccess: @escaping (String) -> Void, onError: @escaping (Error) -> Void)
 }

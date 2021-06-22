@@ -5,7 +5,6 @@
 //  Created by Yuri Pedroso on 20/06/21.
 //
 
-import Foundation
 import PokemonAPI
 
 class PokemonsListViewModel {
@@ -51,7 +50,7 @@ class PokemonsListViewModel {
     self.setButtonsVisibility()
   }
   
-  private func postPokemon(pokemon: PKMPokemon) {
+  private func postPokemon(pokemon: Pokemon) {
     WebHooksNetworkManager.shared.postPokemon(pokemon: pokemon) { [weak self] message in
       self?.view.showAlert(message: message)
     } onError: { [weak self] error in
@@ -84,6 +83,8 @@ extension PokemonsListViewModel: PokemonsListViewModelProtocol {
   
   func postPokemon(with name: String) {
     PokemonService.getPokemon(name: name) { [weak self] pokemon in
+      guard let pokemon = Pokemon.transformToPokemon(pokemon: pokemon) else { return }
+      
       self?.postPokemon(pokemon: pokemon)
     } onFailure: { [weak self] error in
       self?.view.showError(message: PokemonError.showError(error: error))

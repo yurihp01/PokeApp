@@ -7,7 +7,6 @@
 
 import Foundation
 import Moya
-import PokemonAPI
 
 fileprivate let successMessage = "Pokémon Posted with Success!"
 
@@ -18,8 +17,8 @@ final class WebHooksNetworkManager: WebHooksProtocol {
   
   private init() {}
   
-  func postPokemon(pokemon: PKMPokemon, onSuccess: @escaping (String) -> Void, onError: @escaping (Error) -> Void) {
-    provider.request(.postPokemon(pokemon: pokemon.name!)) { result in
+  func postPokemon(pokemon: Pokemon, onSuccess: @escaping (String) -> Void, onError: @escaping (Error) -> Void) {
+    provider.request(.postPokemon(pokemon: pokemon)) { result in
       switch result {
         case .success:
           onSuccess(successMessage)
