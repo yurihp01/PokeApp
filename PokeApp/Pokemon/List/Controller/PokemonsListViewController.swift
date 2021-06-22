@@ -44,6 +44,12 @@ final class PokemonsListViewController: BaseViewController {
     
     coordinator?.back()
   }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    
+    indicator.center = view.center
+  }
     
   private func setTableView() {
     tableView.delegate = self

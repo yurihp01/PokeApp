@@ -36,6 +36,14 @@ class PokemonDetailViewController: BaseViewController {
     coordinator?.back()
   }
   
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    
+    if imageView.image != .none {
+      imageView.makeRounded()
+    }
+  }
+  
   private func getPokemon() {
     viewModel?.getPokemon()
   }

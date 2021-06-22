@@ -28,6 +28,16 @@ final class PokemonViewController: BaseViewController {
     setSearchBar()
   }
   
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    indicator.center = view.center
+    
+    if imageView.image != .none {
+      detailsButton.isHidden = false
+      setImageView()
+    }
+  }
+  
   private func setImageView() {
     imageView.makeRounded()
   }
