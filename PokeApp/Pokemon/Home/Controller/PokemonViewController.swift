@@ -35,6 +35,8 @@ final class PokemonViewController: BaseViewController {
   private func setSearchBar() {
     searchBar.delegate = self
     searchBar.searchTextField.backgroundColor = .white
+    searchBar.searchTextField.setDoneOnKeyboard()
+    searchBar.searchTextField.becomeFirstResponder()
   }
     
   @IBAction func detailsButton(_ sender: UIButton) {

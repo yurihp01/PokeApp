@@ -48,7 +48,7 @@ extension PokemonViewModel: ViewModelProtocol {
   
   func setPokemon(image: UIImage?) {
     guard let pkmPokemon = pokemon,
-          let pokemon = Pokemon.transformToPokemon(pokemon: pkmPokemon) else { return }
+          let pokemon = Pokemon.transformToPokemon(pokemon: pkmPokemon, image: image) else { return }
     
     view.goToDetails(with: pokemon)
   }

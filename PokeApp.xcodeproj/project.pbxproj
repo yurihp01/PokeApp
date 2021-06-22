@@ -42,6 +42,7 @@
 		FABE17C8267E688300BF58F7 /* PokemonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE17C7267E688300BF58F7 /* PokemonService.swift */; };
 		FABE17CE267EAB7400BF58F7 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE17CD267EAB7400BF58F7 /* UIImageView+Extensions.swift */; };
 		FABE17D0267EC44100BF58F7 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE17CF267EC44100BF58F7 /* UIAlertController+Extensions.swift */; };
+		FAC803D32681747D00B4F839 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC803D22681747D00B4F839 /* UITextField+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		FABE17C7267E688300BF58F7 /* PokemonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonService.swift; sourceTree = "<group>"; };
 		FABE17CD267EAB7400BF58F7 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		FABE17CF267EC44100BF58F7 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
+		FAC803D22681747D00B4F839 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +284,7 @@
 			children = (
 				FABE17CD267EAB7400BF58F7 /* UIImageView+Extensions.swift */,
 				FABE17CF267EC44100BF58F7 /* UIAlertController+Extensions.swift */,
+				FAC803D22681747D00B4F839 /* UITextField+Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -733,6 +736,7 @@
 				FABE17C8267E688300BF58F7 /* PokemonService.swift in Sources */,
 				FA6183DC2680105500786785 /* PokemonDetailViewModel.swift in Sources */,
 				FA61842226803AF300786785 /* WebHooksService.swift in Sources */,
+				FAC803D32681747D00B4F839 /* UITextField+Extensions.swift in Sources */,
 				FA6183E02680145B00786785 /* Pokemon.swift in Sources */,
 				FA6183CC267EF44700786785 /* PokemonsListViewModel.swift in Sources */,
 				FABE176F267E188900BF58F7 /* AppDelegate.swift in Sources */,
