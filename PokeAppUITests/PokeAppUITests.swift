@@ -9,34 +9,66 @@ import XCTest
 
 class PokeAppUITests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+  // MARK: - Variable
+  
+  let app = XCUIApplication()
+  
+  // MARK: - Functions
+  
+  override func setUpWithError() throws {
+      app.launch()
+      continueAfterFailure = false
+  }
+  
+  func testSearchPokemonIsEmpty() throws {
+    let searchfield = app.searchFields.element(boundBy: 0)
+    app.keyboards.buttons[Constants.finishButton].tap()
+    
+    XCTAssertTrue(app.staticTexts[Constants.emptyFieldError].exists, "Search button should shows a dialog with error message")
+      
+      app.buttons[Constants.okButton].tap()
+      XCTAssertTrue(searchfield.title.isEmpty, "Search textfield should be empty")
+  }
+  
+  func testPokemonsNotFound() throws {
+    let searchfield = app.searchFields.element(boundBy: 0)
+    searchfield.typeText("Abb")
+    
+    app.keyboards.buttons[Constants.finishButton].tap()
+    
+    XCTAssertTrue(app.staticTexts[Constants.notFoundError].waitForExistence(timeout: 10), "Search button should shows a dialog with error message")
+      
+    app.buttons[Constants.okButton].tap()
+    XCTAssertTrue(searchfield.title.isEmpty, "Search textfield should be empty")
+  }
 
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
-    }
+  func testSearchPokemon() {
+    XCUIDevice.shared.orientation = .portrait
+    searchPokemon(pokemon: "Palkia")
+    XCUIDevice.shared.orientation = .landscapeRight
+    searchPokemon(pokemon: "Arceus")
+    XCUIDevice.shared.orientation = .portrait
+  }
+  
+  private func searchPokemon(pokemon: String) {
+    var imageValue = ""
+    
+    XCTAssertTrue(imageValue == "", "Image value should be empty.")
+    XCTAssertFalse(app.staticTexts[pokemon].exists, "Pokemon Name should not exists.")
+    
+    let searchField = app.searchFields.element(boundBy: 0)
+    searchField.tap()
+    searchField.typeText(pokemon)
+  
+    app.keyboards.buttons[Constants.finishButton].tap()
+    app.toolbars.buttons[Constants.doneButton].tap()
+    
+    let hasDetailsButton = app.buttons.staticTexts[Constants.detailsButton].exists
+    
+    imageValue = app.images.firstMatch.value as? String ?? ""
+    
+    XCTAssertTrue(hasDetailsButton, "Details button should appears")
+    XCTAssertEqual(app.staticTexts[pokemon].label, pokemon, "Pokemon Name should appears.")
+    XCTAssertTrue(imageValue == Constants.imageInserted, "Image value should be inserted")
+  }
 }

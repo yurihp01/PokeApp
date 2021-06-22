@@ -89,6 +89,7 @@ extension PokemonViewController: PokemonViewProtocol {
       self.label.text = name
       self.detailsButton.isHidden = false
       self.imageView.setImageView(url: image)
+      self.imageView.accessibilityValue = "Image Inserted"
     }
   }
   
