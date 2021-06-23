@@ -22,13 +22,13 @@ struct Pokemon: Encodable {
   }
   
   static func transformToPokemon(pokemon: PKMPokemon, image: UIImage? = UIImage()) -> Pokemon? {
-    guard let name = pokemon.name?.capitalized,
-          let height = pokemon.height?.description,
-          let weight = pokemon.weight?.description,
-          let ability = pokemon.abilities?.first?.ability?.name?.capitalized,
-          let move = pokemon.moves?.first?.move?.name?.capitalized,
-          let type = pokemon.types?.first?.type?.name?.capitalized,
-          let image = image else { return nil }
+    let name = pokemon.name?.capitalized ?? ""
+    let height = pokemon.height?.description ?? ""
+    let weight = pokemon.weight?.description ?? ""
+    let ability = pokemon.abilities?.first?.ability?.name?.capitalized ?? ""
+    let move = pokemon.moves?.first?.move?.name?.capitalized ?? ""
+    let type = pokemon.types?.first?.type?.name?.capitalized ?? ""
+    let image = image ?? UIImage()
     
     let pokemon = Pokemon(name: name, height: height, weight: weight, move: move, type: type, ability: ability, image: image)
     

@@ -87,7 +87,6 @@ extension PokemonsListViewModel: PokemonsListViewModelProtocol {
   func postPokemon(with name: String) {
     service.getPokemon(name: name) { [weak self] pokemon in
       guard let pokemon = Pokemon.transformToPokemon(pokemon: pokemon) else { return }
-      
       self?.postPokemon(pokemon: pokemon)
     } onFailure: { [weak self] error in
       self?.view.showError(message: PokemonError.showError(error: error))

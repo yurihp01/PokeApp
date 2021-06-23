@@ -136,8 +136,10 @@ extension PokemonsListViewController: PokemonsListViewProtocol {
   func setButtonsVisibility(currentPage: Int, pages: Int) {
     performUIUpdate {
       self.currentPage = currentPage
-      self.nextButton.isEnabled = currentPage < pages
+      self.nextButton.backgroundColor = currentPage < pages - 1 ? #colorLiteral(red: 0.2355829477, green: 0.5289153457, blue: 0.998261869, alpha: 1) : #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+      self.nextButton.isEnabled = currentPage < pages - 1
       self.previousButton.isEnabled = currentPage > 0
+      self.previousButton.backgroundColor = currentPage > 0 ? #colorLiteral(red: 0.2355829477, green: 0.5289153457, blue: 0.998261869, alpha: 1) : #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
       self.tableView.reloadData()
     }
   }

@@ -284,9 +284,9 @@
 			children = (
 				FABE1788267E188D00BF58F7 /* WebhooksTest.swift */,
 				FAA3D4152682BA2100698EE2 /* PokemonsTest.swift */,
-				FABE178A267E188D00BF58F7 /* Info.plist */,
-				FAA3D40F268266F000698EE2 /* WebhooksStub.swift */,
 				FAA3D41B2682CBA200698EE2 /* PokemonViewControllerTest.swift */,
+				FAA3D40F268266F000698EE2 /* WebhooksStub.swift */,
+				FABE178A267E188D00BF58F7 /* Info.plist */,
 			);
 			path = PokeAppTests;
 			sourceTree = "<group>";
