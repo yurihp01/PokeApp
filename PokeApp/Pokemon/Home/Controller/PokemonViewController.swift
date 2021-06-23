@@ -38,11 +38,11 @@ final class PokemonViewController: BaseViewController {
     }
   }
   
-  private func setImageView() {
+  func setImageView() {
     imageView.makeRounded()
   }
   
-  private func setSearchBar() {
+  func setSearchBar() {
     searchBar.delegate = self
     searchBar.searchTextField.backgroundColor = .white
     searchBar.searchTextField.setDoneOnKeyboard()
@@ -83,7 +83,7 @@ extension PokemonViewController: PokemonViewProtocol {
   }
   
   func getPokemon(name: String, image: URL) {
-    DispatchQueue.main.async {
+    performUIUpdate {
       self.indicator.stopAnimating()
       self.setImageView()
       self.label.text = name
@@ -94,7 +94,7 @@ extension PokemonViewController: PokemonViewProtocol {
   }
   
   func showError(message: String) {
-    DispatchQueue.main.async {
+    performUIUpdate {
       self.indicator.stopAnimating()
       self.showAlert(message: message, title: "Error")
     }

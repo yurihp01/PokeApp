@@ -25,13 +25,17 @@
 		FA61842226803AF300786785 /* WebHooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA61842126803AF300786785 /* WebHooksService.swift */; };
 		FA61842426803C4E00786785 /* WebHooksNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA61842326803C4E00786785 /* WebHooksNetworkManager.swift */; };
 		FAA3D40D2682222600698EE2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3D40C2682222600698EE2 /* Constants.swift */; };
+		FAA3D410268266F000698EE2 /* WebhooksStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3D40F268266F000698EE2 /* WebhooksStub.swift */; };
+		FAA3D4162682BA2100698EE2 /* PokemonsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3D4152682BA2100698EE2 /* PokemonsTest.swift */; };
+		FAA3D41A2682BFE400698EE2 /* arceus.json in Resources */ = {isa = PBXBuildFile; fileRef = FAA3D4192682BFE400698EE2 /* arceus.json */; };
+		FAA3D41C2682CBA200698EE2 /* PokemonViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3D41B2682CBA200698EE2 /* PokemonViewControllerTest.swift */; };
 		FABE176F267E188900BF58F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE176E267E188900BF58F7 /* AppDelegate.swift */; };
 		FABE1771267E188900BF58F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1770267E188900BF58F7 /* SceneDelegate.swift */; };
 		FABE1773267E188900BF58F7 /* PokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1772267E188900BF58F7 /* PokemonViewController.swift */; };
 		FABE1776267E188900BF58F7 /* Pokemon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABE1774267E188900BF58F7 /* Pokemon.storyboard */; };
 		FABE177B267E188C00BF58F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABE177A267E188C00BF58F7 /* Assets.xcassets */; };
 		FABE177E267E188C00BF58F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABE177C267E188C00BF58F7 /* LaunchScreen.storyboard */; };
-		FABE1789267E188D00BF58F7 /* PokeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1788267E188D00BF58F7 /* PokeAppTests.swift */; };
+		FABE1789267E188D00BF58F7 /* WebhooksTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1788267E188D00BF58F7 /* WebhooksTest.swift */; };
 		FABE1794267E188D00BF58F7 /* PokeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1793267E188D00BF58F7 /* PokeAppUITests.swift */; };
 		FABE17A7267E21DA00BF58F7 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE17A6267E21DA00BF58F7 /* Storyboarded.swift */; };
 		FABE17A9267E244500BF58F7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE17A8267E244500BF58F7 /* Coordinator.swift */; };
@@ -40,7 +44,7 @@
 		FABE17C1267E64D800BF58F7 /* PokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE17C0267E64D800BF58F7 /* PokemonViewModel.swift */; };
 		FABE17C4267E657800BF58F7 /* PokemonInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE17C3267E657800BF58F7 /* PokemonInterface.swift */; };
 		FABE17C6267E65F500BF58F7 /* PokemonCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE17C5267E65F500BF58F7 /* PokemonCoordinator.swift */; };
-		FABE17C8267E688300BF58F7 /* PokemonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE17C7267E688300BF58F7 /* PokemonService.swift */; };
+		FABE17C8267E688300BF58F7 /* PokemonNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE17C7267E688300BF58F7 /* PokemonNetworkManager.swift */; };
 		FABE17CE267EAB7400BF58F7 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE17CD267EAB7400BF58F7 /* UIImageView+Extensions.swift */; };
 		FABE17D0267EC44100BF58F7 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE17CF267EC44100BF58F7 /* UIAlertController+Extensions.swift */; };
 		FAC803D32681747D00B4F839 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC803D22681747D00B4F839 /* UITextField+Extensions.swift */; };
@@ -88,6 +92,10 @@
 		FA61842126803AF300786785 /* WebHooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHooksService.swift; sourceTree = "<group>"; };
 		FA61842326803C4E00786785 /* WebHooksNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHooksNetworkManager.swift; sourceTree = "<group>"; };
 		FAA3D40C2682222600698EE2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FAA3D40F268266F000698EE2 /* WebhooksStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhooksStub.swift; sourceTree = "<group>"; };
+		FAA3D4152682BA2100698EE2 /* PokemonsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonsTest.swift; sourceTree = "<group>"; };
+		FAA3D4192682BFE400698EE2 /* arceus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = arceus.json; sourceTree = "<group>"; };
+		FAA3D41B2682CBA200698EE2 /* PokemonViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewControllerTest.swift; sourceTree = "<group>"; };
 		FABE176B267E188900BF58F7 /* PokeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABE176E267E188900BF58F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FABE1770267E188900BF58F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,7 +105,7 @@
 		FABE177D267E188C00BF58F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FABE177F267E188C00BF58F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FABE1784267E188D00BF58F7 /* PokeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FABE1788267E188D00BF58F7 /* PokeAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeAppTests.swift; sourceTree = "<group>"; };
+		FABE1788267E188D00BF58F7 /* WebhooksTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhooksTest.swift; sourceTree = "<group>"; };
 		FABE178A267E188D00BF58F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FABE178F267E188D00BF58F7 /* PokeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABE1793267E188D00BF58F7 /* PokeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeAppUITests.swift; sourceTree = "<group>"; };
@@ -109,7 +117,7 @@
 		FABE17C0267E64D800BF58F7 /* PokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewModel.swift; sourceTree = "<group>"; };
 		FABE17C3267E657800BF58F7 /* PokemonInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInterface.swift; sourceTree = "<group>"; };
 		FABE17C5267E65F500BF58F7 /* PokemonCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCoordinator.swift; sourceTree = "<group>"; };
-		FABE17C7267E688300BF58F7 /* PokemonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonService.swift; sourceTree = "<group>"; };
+		FABE17C7267E688300BF58F7 /* PokemonNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonNetworkManager.swift; sourceTree = "<group>"; };
 		FABE17CD267EAB7400BF58F7 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		FABE17CF267EC44100BF58F7 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		FAC803D22681747D00B4F839 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
@@ -226,6 +234,14 @@
 			path = Interface;
 			sourceTree = "<group>";
 		};
+		FAA3D4142682A91600698EE2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FA61842126803AF300786785 /* WebHooksService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		FABE1762267E188900BF58F7 = {
 			isa = PBXGroup;
 			children = (
@@ -266,8 +282,11 @@
 		FABE1787267E188D00BF58F7 /* PokeAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				FABE1788267E188D00BF58F7 /* PokeAppTests.swift */,
+				FABE1788267E188D00BF58F7 /* WebhooksTest.swift */,
+				FAA3D4152682BA2100698EE2 /* PokemonsTest.swift */,
 				FABE178A267E188D00BF58F7 /* Info.plist */,
+				FAA3D40F268266F000698EE2 /* WebhooksStub.swift */,
+				FAA3D41B2682CBA200698EE2 /* PokemonViewControllerTest.swift */,
 			);
 			path = PokeAppTests;
 			sourceTree = "<group>";
@@ -298,6 +317,7 @@
 				FABE17B2267E3CCE00BF58F7 /* Error */,
 				FABE17B1267E3CA900BF58F7 /* Model */,
 				FABE17B3267E3CD900BF58F7 /* Network */,
+				FAA3D4142682A91600698EE2 /* Service */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -326,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				FABE177A267E188C00BF58F7 /* Assets.xcassets */,
+				FAA3D4192682BFE400698EE2 /* arceus.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -373,8 +394,7 @@
 		FABE17B3267E3CD900BF58F7 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				FABE17C7267E688300BF58F7 /* PokemonService.swift */,
-				FA61842126803AF300786785 /* WebHooksService.swift */,
+				FABE17C7267E688300BF58F7 /* PokemonNetworkManager.swift */,
 				FA61842326803C4E00786785 /* WebHooksNetworkManager.swift */,
 			);
 			path = Network;
@@ -596,6 +616,7 @@
 			files = (
 				FABE177E267E188C00BF58F7 /* LaunchScreen.storyboard in Resources */,
 				FABE177B267E188C00BF58F7 /* Assets.xcassets in Resources */,
+				FAA3D41A2682BFE400698EE2 /* arceus.json in Resources */,
 				FA6183C3267EEC6200786785 /* PokemonsList.storyboard in Resources */,
 				FA6183D4268009D900786785 /* PokemonDetail.storyboard in Resources */,
 				FABE1776267E188900BF58F7 /* Pokemon.storyboard in Resources */,
@@ -736,7 +757,7 @@
 				FABE17D0267EC44100BF58F7 /* UIAlertController+Extensions.swift in Sources */,
 				FABE17A9267E244500BF58F7 /* Coordinator.swift in Sources */,
 				FABE17A7267E21DA00BF58F7 /* Storyboarded.swift in Sources */,
-				FABE17C8267E688300BF58F7 /* PokemonService.swift in Sources */,
+				FABE17C8267E688300BF58F7 /* PokemonNetworkManager.swift in Sources */,
 				FA6183DC2680105500786785 /* PokemonDetailViewModel.swift in Sources */,
 				FA61842226803AF300786785 /* WebHooksService.swift in Sources */,
 				FAC803D32681747D00B4F839 /* UITextField+Extensions.swift in Sources */,
@@ -759,7 +780,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FABE1789267E188D00BF58F7 /* PokeAppTests.swift in Sources */,
+				FAA3D4162682BA2100698EE2 /* PokemonsTest.swift in Sources */,
+				FABE1789267E188D00BF58F7 /* WebhooksTest.swift in Sources */,
+				FAA3D41C2682CBA200698EE2 /* PokemonViewControllerTest.swift in Sources */,
+				FAA3D410268266F000698EE2 /* WebhooksStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -34,6 +34,14 @@ struct Pokemon: Encodable {
     
     return pokemon
   }
+  
+  static func loadJson(fileName: String) -> PKMPokemon? {
+     let decoder = JSONDecoder()
+     guard let url = Bundle.main.url(forResource: fileName, withExtension: "json"),
+           let data = try? Data(contentsOf: url),
+           let pokemon = try? decoder.decode(PKMPokemon.self, from: data) else { return nil }
+     return pokemon
+  }
 }
 
 extension Pokemon {

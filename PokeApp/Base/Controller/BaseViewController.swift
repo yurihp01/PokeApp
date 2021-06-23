@@ -31,4 +31,12 @@ class BaseViewController: UIViewController, Storyboarded {
     let alert = UIAlertController.showAlertDialog(title: title, message: message)
     self.present(alert, animated: true, completion: nil)
   }
+  
+  func performUIUpdate(using closure: @escaping () -> Void) {
+      if Thread.isMainThread {
+          closure()
+      } else {
+          DispatchQueue.main.async(execute: closure)
+      }
+  }
 }

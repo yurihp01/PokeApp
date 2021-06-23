@@ -12,11 +12,13 @@ class PokemonViewModel {
   // MARK: - Variables
   
   private unowned let view: PokemonViewProtocol
+  private let service: PokemonServiceProtocol
   
   var pokemon: PKMPokemon? = nil
   
-  init(view: PokemonViewProtocol) {
+  init(view: PokemonViewProtocol, service: PokemonServiceProtocol) {
     self.view = view
+    self.service = service
     
     print("INIT PokemonViewModel")
   }
@@ -35,7 +37,7 @@ extension PokemonViewModel: ViewModelProtocol {
       return
     }
   
-    PokemonService.getPokemon(name: name) { [weak self] pokemon in
+    service.getPokemon(name: name) { [weak self] pokemon in
       guard let image = URL(string: pokemon.sprites?.backDefault ?? ""),
             let name = pokemon.name else { return }
       

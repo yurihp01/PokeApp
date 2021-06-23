@@ -110,14 +110,14 @@ extension PokemonsListViewController: UITableViewDelegate, UITableViewDataSource
 
 extension PokemonsListViewController: PokemonsListViewProtocol {
   func showError(message: String?) {
-    DispatchQueue.main.async {
+    performUIUpdate {
       self.indicator.stopAnimating()
       self.showAlert(message: message, title: Titles.error.rawValue)
     }
   }
   
   func showAlert(message: String) {
-    DispatchQueue.main.async {
+    performUIUpdate {
       self.indicator.stopAnimating()
       self.showAlert(message: message, title: Titles.posted.rawValue)
       self.tableView.cellForRow(at: self.indexPath)?.imageView?.image = UIImage(systemName: "star.fill")
@@ -126,16 +126,15 @@ extension PokemonsListViewController: PokemonsListViewProtocol {
   }
   
   func getPokemons(with pokemons: [String]) {
-    self.pokemons = pokemons
-    
-    DispatchQueue.main.async {
+    performUIUpdate {
+      self.pokemons = pokemons
       self.indicator.stopAnimating()
       self.tableView.reloadData()
     }
   }
   
   func setButtonsVisibility(currentPage: Int, pages: Int) {
-    DispatchQueue.main.async {
+    performUIUpdate {
       self.currentPage = currentPage
       self.nextButton.isEnabled = currentPage < pages
       self.previousButton.isEnabled = currentPage > 0

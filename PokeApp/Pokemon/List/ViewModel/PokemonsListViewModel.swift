@@ -12,6 +12,7 @@ class PokemonsListViewModel {
   // MARK: - Variables
   
   private unowned let view: PokemonsListViewProtocol
+  private let service: PokemonServiceProtocol
   
   private var pagedObject: PKMPagedObject<PKMPokemon>? = nil
   
@@ -25,8 +26,10 @@ class PokemonsListViewModel {
     return pages
   }
   
-  init(view: PokemonsListViewProtocol) {
+  init(view: PokemonsListViewProtocol, service: PokemonServiceProtocol) {
     self.view = view
+    self.service = service
+    
     print("INIT - PokemonsListViewModel")
   }
   
@@ -64,7 +67,7 @@ class PokemonsListViewModel {
 extension PokemonsListViewModel: PokemonsListViewModelProtocol {
 
   func getPokemons() {
-    PokemonService.getPokemonsList { [weak self] pagedObject in
+    service.getPokemonsList { [weak self] pagedObject in
       self?.getPokemonsSuccess(pagedObject: pagedObject)
     } onFailure: { [weak self] error in
       self?.view.showError(message: PokemonError.showError(error: error))
@@ -74,7 +77,7 @@ extension PokemonsListViewModel: PokemonsListViewModelProtocol {
   func getPokemonsWithPaging(_ pagination: PokemonPagination) {
     guard let pagedObject = pagedObject else { return }
     
-    PokemonService.getPokemonsListPaging(with: pagedObject, pagination: pagination) { [weak self] pagedObject in
+    service.getPokemonsListPaging(with: pagedObject, pagination: pagination) { [weak self] pagedObject in
       self?.getPokemonsSuccess(pagedObject: pagedObject)
     } onFailure: { [weak self] error in
       self?.view.showError(message: PokemonError.showError(error: error))
@@ -82,7 +85,7 @@ extension PokemonsListViewModel: PokemonsListViewModelProtocol {
   }
   
   func postPokemon(with name: String) {
-    PokemonService.getPokemon(name: name) { [weak self] pokemon in
+    service.getPokemon(name: name) { [weak self] pokemon in
       guard let pokemon = Pokemon.transformToPokemon(pokemon: pokemon) else { return }
       
       self?.postPokemon(pokemon: pokemon)

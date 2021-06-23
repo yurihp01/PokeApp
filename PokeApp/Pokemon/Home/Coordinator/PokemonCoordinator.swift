@@ -26,7 +26,8 @@ class PokemonCoordinator: Coordinator {
   
   func start() {
     let viewController = PokemonViewController.instatiate(storyboardName: .pokemon)
-    let viewModel = PokemonViewModel(view: viewController)
+    let service = PokemonService()
+    let viewModel = PokemonViewModel(view: viewController, service: service)
     
     viewController.coordinator = self
     viewController.viewModel = viewModel
