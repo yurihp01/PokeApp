@@ -50,6 +50,22 @@ class PokeAppUITests: XCTestCase {
     XCUIDevice.shared.orientation = .portrait
   }
   
+  func testCheckPokemonDetailsLabelRotatingScreen() {
+    searchPokemon(pokemon: "Palkia")
+    
+    app.buttons[Constants.detailsButton].tap()
+    
+    let labelExists = app.staticTexts["Height: 42"].exists
+    XCTAssertTrue(labelExists, "Label Height should exists.")
+    
+    XCUIDevice.shared.orientation = .landscapeRight
+    
+    XCTAssertTrue(labelExists, "Label Height should exists.")
+    
+    XCUIDevice.shared.orientation = .portrait
+
+  }
+  
   private func searchPokemon(pokemon: String) {
     var imageValue = ""
     
