@@ -49,8 +49,9 @@ class PokemonViewControllerTest: XCTestCase {
   }
 
   func testGetPokemon() {
-    let name = "Palkia"
-    let image = "arceus.org"
+    let url = URL(string: "image.com") ?? URL(fileURLWithPath: "")
+
+    let pokemon = Pokemon(name: "Arceus", height: "20", weight: "30", move: "Cut", type: "Grass", ability: "Bite", spriteImage: url)
 
     sut.imageView.image = UIImage()
     sut.label.text = ""
@@ -58,9 +59,9 @@ class PokemonViewControllerTest: XCTestCase {
     XCTAssertTrue(sut.label.text?.isEmpty ?? false, "Label should be empty.")
     XCTAssertEqual(sut.imageView.image, UIImage(), "ImageView should be empty")
 
-    sut.getPokemon(name: name, image: URL(fileURLWithPath: image))
+    sut.getPokemon(with: pokemon)
 
-    XCTAssertTrue(sut.label.text == name, "Label should be \(name).")
+    XCTAssertTrue(sut.label.text == pokemon.name, "Label should be \(pokemon.name).")
     XCTAssertNotEqual(sut.imageView.image, UIImage(), "ImageView should not be empty")
   }
 }

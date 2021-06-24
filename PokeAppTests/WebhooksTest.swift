@@ -9,11 +9,15 @@ import XCTest
 @testable import PokeApp
 
 class WebhooksTest: XCTestCase {
+
+  //  MARK: Variable
   
+  let url = URL(string: "image.com") ?? URL(fileURLWithPath: "")
+
   // MARK: - Functions
 
   func testPostPokemonSuccess() throws {
-    let pokemon = Pokemon(name: "Arceus", height: "20", weight: "30", move: "Cut", type: "Grass", ability: "Bite")
+    let pokemon = Pokemon(name: "Arceus", height: "20", weight: "30", move: "Cut", type: "Grass", ability: "Bite", spriteImage: url)
     
     WebHooksNetworkManagerStub(isFailure: false).postPokemon(pokemon: pokemon) { message in
       XCTAssertTrue(message == "Pokemon sent successfully")
@@ -21,7 +25,7 @@ class WebhooksTest: XCTestCase {
   }
   
   func testPostPokemonFailure() throws {
-    let pokemon = Pokemon(name: "Arceus", height: "20", weight: "30", move: "Cut", type: "Grass", ability: "Bite")
+    let pokemon = Pokemon(name: "Arceus", height: "20", weight: "30", move: "Cut", type: "Grass", ability: "Bite", spriteImage: url)
     
     WebHooksNetworkManagerStub(isFailure: true).postPokemon(pokemon: pokemon) { _ in
     } onError: { error in
