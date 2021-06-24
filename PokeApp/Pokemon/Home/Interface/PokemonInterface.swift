@@ -9,13 +9,13 @@ import PokemonAPI
 
 // MARK: - Protocols
 
-protocol ViewModelProtocol {  
+protocol PokemonViewModelProtocol {  
   func getPokemon(with name: String?)
   func setPokemon(image: UIImage?)
 }
 
 protocol PokemonViewProtocol: AnyObject {
-  func getPokemon(name: String, image: URL)
+  func getPokemon(with pokemon: Pokemon)
   func goToDetails(with pokemon: Pokemon)
   func showError(message: String)
 }

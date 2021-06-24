@@ -12,23 +12,14 @@ class PokemonsListViewModel {
   // MARK: - Variables
   
   private unowned let view: PokemonsListViewProtocol
-  private let service: PokemonServiceProtocol
+  private let network: PokemonNetworkProtocol
   
-  private var pagedObject: PKMPagedObject<PKMPokemon>? = nil
+  private var pagedObject: PagedObject? = nil
+  var bookmarkedPokemons: [(Int, Int)] = []
   
-  private var currentPage: Int {
-    guard let currentPage = pagedObject?.currentPage else { return 0 }
-    return currentPage
-  }
-  
-  private var pages: Int {
-    guard let pages = pagedObject?.pages else { return 0 }
-    return pages
-  }
-  
-  init(view: PokemonsListViewProtocol, service: PokemonServiceProtocol) {
+  init(view: PokemonsListViewProtocol, network: PokemonNetworkProtocol) {
     self.view = view
-    self.service = service
+    self.network = network
     
     print("INIT - PokemonsListViewModel")
   }
@@ -39,18 +30,16 @@ class PokemonsListViewModel {
   
   // MARK: - Functions
   
-  private func setButtonsVisibility() {
-    view.setButtonsVisibility(currentPage: currentPage, pages: pages)
-  }
-  
-  private func getPokemonsSuccess(pagedObject: PKMPagedObject<PKMPokemon>) {
-    self.pagedObject = pagedObject
+  private func getPokemonsSuccess(object: PKMPagedObject<PKMPokemon>) {
+    self.pagedObject = PagedObject(pagedObject: object)
+
+    guard let results = object.results as? [PKMNamedAPIResource],
+          let pagedObject = pagedObject else { return }
     
-    guard let results = pagedObject.results as? [PKMNamedAPIResource] else { return }
-    let pokemons = results.map { $0.name ?? "" }
+    let names = pagedObject.getPokemonNames(results: results)
     
-    self.view.getPokemons(with: pokemons)
-    self.setButtonsVisibility()
+    view.getPokemons(with: names)
+    view.setButtonsVisibility()
   }
   
   private func postPokemon(pokemon: Pokemon) {
@@ -65,10 +54,10 @@ class PokemonsListViewModel {
 // MARK: - Extension
 
 extension PokemonsListViewModel: PokemonsListViewModelProtocol {
-
+  
   func getPokemons() {
-    service.getPokemonsList { [weak self] pagedObject in
-      self?.getPokemonsSuccess(pagedObject: pagedObject)
+    network.getPokemonsList { [weak self] pagedObject in
+      self?.getPokemonsSuccess(object: pagedObject)
     } onFailure: { [weak self] error in
       self?.view.showError(message: PokemonError.showError(error: error))
     }
@@ -77,19 +66,48 @@ extension PokemonsListViewModel: PokemonsListViewModelProtocol {
   func getPokemonsWithPaging(_ pagination: PokemonPagination) {
     guard let pagedObject = pagedObject else { return }
     
-    service.getPokemonsListPaging(with: pagedObject, pagination: pagination) { [weak self] pagedObject in
-      self?.getPokemonsSuccess(pagedObject: pagedObject)
+    network.getPokemonsListPaging(with: pagedObject.pagedObject, pagination: pagination) { [weak self] pagedObject in
+      self?.getPokemonsSuccess(object: pagedObject)
     } onFailure: { [weak self] error in
       self?.view.showError(message: PokemonError.showError(error: error))
     }
   }
   
   func postPokemon(with name: String) {
-    service.getPokemon(name: name) { [weak self] pokemon in
+    network.getPokemon(name: name) { [weak self] pokemon in
       guard let pokemon = Pokemon.transformToPokemon(pokemon: pokemon) else { return }
       self?.postPokemon(pokemon: pokemon)
     } onFailure: { [weak self] error in
       self?.view.showError(message: PokemonError.showError(error: error))
     }
+  }
+  
+  func setEnabled(isNextButton: Bool) -> Bool {
+    guard let pagedObject = pagedObject else { return false }
+    
+    if isNextButton {
+      return pagedObject.currentPage < pagedObject.pages - 1
+    } else {
+      return pagedObject.currentPage > 0
+    }
+  }
+  
+  func setColor(isNextButton: Bool) -> UIColor {
+      return setEnabled(isNextButton: isNextButton) ? #colorLiteral(red: 0.2355829477, green: 0.5289153457, blue: 0.998261869, alpha: 1) : #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+  }
+  
+  func setImage(indexPath: IndexPath, completion: () -> ()) {
+    guard let pagedObject = pagedObject else { return }
+
+    bookmarkedPokemons.forEach { row, page in
+      if pagedObject.currentPage == page, indexPath.row == row {
+        completion()
+      }
+    }
+  }
+  
+  func addBookmarkedPokemon(indexPath: IndexPath) {
+    guard let pagedObject = pagedObject else { return }
+    bookmarkedPokemons.append((indexPath.row, pagedObject.currentPage))
   }
 }

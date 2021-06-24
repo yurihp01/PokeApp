@@ -9,9 +9,10 @@ import PokemonAPI
 
 struct Pokemon: Encodable {
   let name, height, weight, move, type, ability: String
-  let image: UIImage
+  let spriteImage: URL
+  var image: UIImage
   
-  init(name: String, height: String, weight: String, move: String, type: String, ability: String, image: UIImage = UIImage()) {
+  init(name: String, height: String, weight: String, move: String, type: String, ability: String, spriteImage: URL, image: UIImage = UIImage()) {
     self.name = name
     self.height = height
     self.weight = weight
@@ -19,6 +20,7 @@ struct Pokemon: Encodable {
     self.type = type
     self.ability = ability
     self.image = image
+    self.spriteImage = spriteImage
   }
   
   static func transformToPokemon(pokemon: PKMPokemon, image: UIImage? = UIImage()) -> Pokemon? {
@@ -28,9 +30,10 @@ struct Pokemon: Encodable {
     let ability = pokemon.abilities?.first?.ability?.name?.capitalized ?? ""
     let move = pokemon.moves?.first?.move?.name?.capitalized ?? ""
     let type = pokemon.types?.first?.type?.name?.capitalized ?? ""
+    let spriteImage = URL(string: pokemon.sprites?.backDefault ?? "") ?? URL(fileURLWithPath: "")
     let image = image ?? UIImage()
     
-    let pokemon = Pokemon(name: name, height: height, weight: weight, move: move, type: type, ability: ability, image: image)
+    let pokemon = Pokemon(name: name, height: height, weight: weight, move: move, type: type, ability: ability, spriteImage: spriteImage, image: image)
     
     return pokemon
   }
@@ -58,5 +61,6 @@ extension Pokemon {
     try container.encode(ability, forKey: .ability)
     try container.encode(move, forKey: .move)
     try container.encode(type, forKey: .type)
+    try container.encode(spriteImage.absoluteString, forKey: .image)
   }
 }

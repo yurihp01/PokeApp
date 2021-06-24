@@ -5,7 +5,6 @@
 //  Created by Yuri Pedroso on 19/06/21.
 //
 
-import UIKit
 import PokemonAPI
 
 class PokemonCoordinator: Coordinator {
@@ -26,8 +25,8 @@ class PokemonCoordinator: Coordinator {
   
   func start() {
     let viewController = PokemonViewController.instatiate(storyboardName: .pokemon)
-    let service = PokemonService()
-    let viewModel = PokemonViewModel(view: viewController, service: service)
+    let network = PokemonNetworkManager()
+    let viewModel = PokemonViewModel(view: viewController, network: network)
     
     viewController.coordinator = self
     viewController.viewModel = viewModel

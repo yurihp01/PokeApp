@@ -29,6 +29,8 @@
 		FAA3D4162682BA2100698EE2 /* PokemonsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3D4152682BA2100698EE2 /* PokemonsTest.swift */; };
 		FAA3D41A2682BFE400698EE2 /* arceus.json in Resources */ = {isa = PBXBuildFile; fileRef = FAA3D4192682BFE400698EE2 /* arceus.json */; };
 		FAA3D41C2682CBA200698EE2 /* PokemonViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3D41B2682CBA200698EE2 /* PokemonViewControllerTest.swift */; };
+		FAA660CB2683DEE2001433BF /* PagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA660CA2683DEE2001433BF /* PagedObject.swift */; };
+		FAA660D326840C7D001433BF /* PokemonNetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA660D226840C7D001433BF /* PokemonNetworkInterface.swift */; };
 		FABE176F267E188900BF58F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE176E267E188900BF58F7 /* AppDelegate.swift */; };
 		FABE1771267E188900BF58F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1770267E188900BF58F7 /* SceneDelegate.swift */; };
 		FABE1773267E188900BF58F7 /* PokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE1772267E188900BF58F7 /* PokemonViewController.swift */; };
@@ -96,6 +98,8 @@
 		FAA3D4152682BA2100698EE2 /* PokemonsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonsTest.swift; sourceTree = "<group>"; };
 		FAA3D4192682BFE400698EE2 /* arceus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = arceus.json; sourceTree = "<group>"; };
 		FAA3D41B2682CBA200698EE2 /* PokemonViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewControllerTest.swift; sourceTree = "<group>"; };
+		FAA660CA2683DEE2001433BF /* PagedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedObject.swift; sourceTree = "<group>"; };
+		FAA660D226840C7D001433BF /* PokemonNetworkInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonNetworkInterface.swift; sourceTree = "<group>"; };
 		FABE176B267E188900BF58F7 /* PokeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABE176E267E188900BF58F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FABE1770267E188900BF58F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -242,6 +246,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		FAA660D126840C59001433BF /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				FAA660D226840C7D001433BF /* PokemonNetworkInterface.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
 		FABE1762267E188900BF58F7 = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				FABE17B2267E3CCE00BF58F7 /* Error */,
+				FAA660D126840C59001433BF /* Interface */,
 				FABE17B1267E3CA900BF58F7 /* Model */,
 				FABE17B3267E3CD900BF58F7 /* Network */,
 				FAA3D4142682A91600698EE2 /* Service */,
@@ -379,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				FA6183DF2680145B00786785 /* Pokemon.swift */,
+				FAA660CA2683DEE2001433BF /* PagedObject.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -763,12 +777,14 @@
 				FAC803D32681747D00B4F839 /* UITextField+Extensions.swift in Sources */,
 				FA6183E02680145B00786785 /* Pokemon.swift in Sources */,
 				FA6183CC267EF44700786785 /* PokemonsListViewModel.swift in Sources */,
+				FAA660D326840C7D001433BF /* PokemonNetworkInterface.swift in Sources */,
 				FABE176F267E188900BF58F7 /* AppDelegate.swift in Sources */,
 				FABE17C1267E64D800BF58F7 /* PokemonViewModel.swift in Sources */,
 				FA6183E42680244D00786785 /* PokemonError.swift in Sources */,
 				FABE17AE267E338200BF58F7 /* BaseViewController.swift in Sources */,
 				FA6183D626800C3A00786785 /* PokemonDetailViewController.swift in Sources */,
 				FABE1771267E188900BF58F7 /* SceneDelegate.swift in Sources */,
+				FAA660CB2683DEE2001433BF /* PagedObject.swift in Sources */,
 				FABE17B0267E381000BF58F7 /* BaseCoordinator.swift in Sources */,
 				FA6183C7267EEF7B00786785 /* PokemonsListViewController.swift in Sources */,
 				FABE17C6267E65F500BF58F7 /* PokemonCoordinator.swift in Sources */,

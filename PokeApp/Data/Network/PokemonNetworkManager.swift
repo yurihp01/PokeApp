@@ -1,21 +1,15 @@
 //
-//  PokemonService.swift
+//  PokemonNetworkManager.swift
 //  PokeApp
 //
 //  Created by Yuri Pedroso on 19/06/21.
 //
 
-import Foundation
 import PokemonAPI
 
 // MARK: - Functions
-protocol PokemonServiceProtocol {
-  func getPokemon(name: String, onSuccess: @escaping (PKMPokemon) -> Void, onFailure: @escaping (Error) -> Void)
-  func getPokemonsList(onSuccess: @escaping (PKMPagedObject<PKMPokemon>) -> Void, onFailure: @escaping (Error) -> Void)
-  func getPokemonsListPaging(with pagedObject: PKMPagedObject<PKMPokemon>, pagination: PokemonPagination, onSuccess: @escaping (PKMPagedObject<PKMPokemon>) -> Void, onFailure: @escaping (Error) -> Void)
-}
 
-class PokemonService: PokemonServiceProtocol {
+class PokemonNetworkManager: PokemonNetworkProtocol {
   
   func getPokemon(name: String, onSuccess: @escaping (PKMPokemon) -> Void, onFailure: @escaping (Error) -> Void) {
     PokemonAPI().pokemonService.fetchPokemon(name) { result in

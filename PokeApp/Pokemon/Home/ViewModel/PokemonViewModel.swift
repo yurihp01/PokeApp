@@ -12,13 +12,13 @@ class PokemonViewModel {
   // MARK: - Variables
   
   private unowned let view: PokemonViewProtocol
-  private let service: PokemonServiceProtocol
+  private let network: PokemonNetworkProtocol
   
-  var pokemon: PKMPokemon? = nil
+  var pokemon: Pokemon? = nil
   
-  init(view: PokemonViewProtocol, service: PokemonServiceProtocol) {
+  init(view: PokemonViewProtocol, network: PokemonNetworkProtocol) {
     self.view = view
-    self.service = service
+    self.network = network
     
     print("INIT PokemonViewModel")
   }
@@ -30,28 +30,28 @@ class PokemonViewModel {
 
 // MARK: - Extension
 
-extension PokemonViewModel: ViewModelProtocol {
+extension PokemonViewModel: PokemonViewModelProtocol {
   func getPokemon(with name: String?) {
     guard let name = name, !name.isEmpty else {
       view.showError(message: PokemonError.blankName.localizedDescription)
       return
     }
   
-    service.getPokemon(name: name) { [weak self] pokemon in
-      guard let image = URL(string: pokemon.sprites?.backDefault ?? ""),
-            let name = pokemon.name else { return }
-      
+    network.getPokemon(name: name) { [weak self] pokemon in
+      guard let pokemon = Pokemon.transformToPokemon(pokemon: pokemon) else { return }
       self?.pokemon = pokemon
-      self?.view.getPokemon(name: name.capitalized, image: image)
+      
+      self?.view.getPokemon(with: pokemon)
     } onFailure: { [weak self] error in
       self?.view.showError(message: PokemonError.showError(error: error))
     }
   }
   
   func setPokemon(image: UIImage?) {
-    guard let pkmPokemon = pokemon,
-          let pokemon = Pokemon.transformToPokemon(pokemon: pkmPokemon, image: image) else { return }
+    guard var pokemon = pokemon,
+          let image = image else { return }
     
+    pokemon.image = image
     view.goToDetails(with: pokemon)
   }
 }

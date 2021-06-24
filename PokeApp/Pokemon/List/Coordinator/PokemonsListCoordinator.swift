@@ -20,8 +20,8 @@ class PokemonsListCoordinator: Coordinator {
   
   func start() {
     let viewController = PokemonsListViewController.instatiate(storyboardName: .pokemonsList)
-    let service = PokemonService()
-    let viewModel = PokemonsListViewModel(view: viewController, service: service)
+    let network = PokemonNetworkManager()
+    let viewModel = PokemonsListViewModel(view: viewController, network: network)
     
     viewController.coordinator = self
     viewController.viewModel = viewModel

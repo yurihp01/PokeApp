@@ -32,6 +32,6 @@ extension PokemonError: LocalizedError {
   }
   
   static func showError(error: Error) -> String {
-    error.localizedDescription.contains("404") ?  PokemonError.notFound.localizedDescription : PokemonError.internetConnection.localizedDescription
+    error.localizedDescription.contains("connection") ?  PokemonError.internetConnection.localizedDescription : PokemonError.notFound.localizedDescription 
   }
 }

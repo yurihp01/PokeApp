@@ -17,7 +17,7 @@ final class PokemonViewController: BaseViewController {
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var detailsButton: UIButton!
   
-  var viewModel: ViewModelProtocol?
+  var viewModel: PokemonViewModelProtocol?
   weak var coordinator: PokemonCoordinator?
   
   // MARK: - Functions
@@ -36,6 +36,10 @@ final class PokemonViewController: BaseViewController {
       detailsButton.isHidden = false
       setImageView()
     }
+  }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    view.endEditing(true)
   }
   
   func setImageView() {
@@ -82,13 +86,13 @@ extension PokemonViewController: PokemonViewProtocol {
     coordinator?.goToDetails(with: pokemon)
   }
   
-  func getPokemon(name: String, image: URL) {
+  func getPokemon(with pokemon: Pokemon) {
     performUIUpdate {
       self.indicator.stopAnimating()
       self.setImageView()
-      self.label.text = name
+      self.label.text = pokemon.name
       self.detailsButton.isHidden = false
-      self.imageView.setImageView(url: image)
+      self.imageView.setImageView(url: pokemon.spriteImage)
       self.imageView.accessibilityValue = "Image Inserted"
     }
   }
